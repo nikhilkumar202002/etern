@@ -20,7 +20,7 @@ const Starting = () => {
           <div className="starting-video-overlay" />
         </div>
 
-        <div className="starting-content-pane">
+        <div className="starting-content-pane app-container">
           <div className="starting-orb starting-orb--left" />
           <div className="starting-orb starting-orb--right" />
 

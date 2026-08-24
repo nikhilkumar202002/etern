@@ -18,3 +18,26 @@
     font-family: var(--font-fredoka), sans-serif;
   }
 }
+
+@layer components {
+  .app-container {
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .app-container {
+      padding-left: 50px;
+      padding-right: 50px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .app-container {
+      padding-left: 95px;
+      padding-right: 95px;
+    }
+  }
+}
