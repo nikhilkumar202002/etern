@@ -183,5 +183,6 @@
   .starting-login-link {
     font-weight: 500;
     color: #54b46f;
+    cursor: pointer;
   }
 }
