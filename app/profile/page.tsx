@@ -1,3 +1,6 @@
+'use client'
+
+import { useState } from 'react'
 import Image from 'next/image'
 import '../pages/Styles.css'
 
@@ -39,39 +42,39 @@ const buddies = [
   },
 ] as const
 
+type BuddyName = (typeof buddies)[number]['name']
+
+const defaultBuddy: BuddyName =
+  buddies.find((buddy) => buddy.selected)?.name ?? buddies[0].name
+
+function ArrowIcon({ direction }: { direction: 'left' | 'right' }) {
+  const rotate = direction === 'left' ? 'rotate(180 12 12)' : undefined
+
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="profile-nav-icon"
+      fill="none"
+    >
+      <g transform={rotate}>
+        <path
+          d="M9.5 6.5L15 12l-5.5 5.5"
+          stroke="currentColor"
+          strokeWidth="2.15"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        />
+      </g>
+    </svg>
+  )
+}
+
 export default function Page() {
+  const [selectedBuddy, setSelectedBuddy] = useState<BuddyName>(defaultBuddy)
+
   return (
     <section className="profile-page">
-      <div className="profile-star profile-star--one" aria-hidden="true">
-        <Image
-          src="/icons/star.png"
-          alt=""
-          width={301}
-          height={301}
-          aria-hidden="true"
-          className="profile-star-image"
-        />
-      </div>
-      <div className="profile-star profile-star--two" aria-hidden="true">
-        <Image
-          src="/icons/star.png"
-          alt=""
-          width={301}
-          height={301}
-          aria-hidden="true"
-          className="profile-star-image"
-        />
-      </div>
-      <div className="profile-star profile-star--three" aria-hidden="true">
-        <Image
-          src="/icons/star.png"
-          alt=""
-          width={301}
-          height={301}
-          aria-hidden="true"
-          className="profile-star-image"
-        />
-      </div>
       <div className="profile-pattern-wrap" aria-hidden="true">
         <Image
           src="/patterns/profile-pattern.png"
@@ -81,23 +84,53 @@ export default function Page() {
           priority
           className="profile-pattern"
         />
+        <div className="profile-pattern-decor profile-pattern-decor--star-left">
+          <Image
+            src="/icons/star.png"
+            alt=""
+            width={301}
+            height={301}
+            aria-hidden="true"
+            className="profile-pattern-decor-image"
+          />
+        </div>
+        <div className="profile-pattern-decor profile-pattern-decor--star-mid">
+          <Image
+            src="/icons/star.png"
+            alt=""
+            width={301}
+            height={301}
+            aria-hidden="true"
+            className="profile-pattern-decor-image"
+          />
+        </div>
+        <div className="profile-pattern-decor profile-pattern-decor--cloud">
+          <Image
+            src="/icons/cloud.png"
+            alt=""
+            width={2355}
+            height={1548}
+            aria-hidden="true"
+            className="profile-pattern-decor-image"
+          />
+        </div>
       </div>
 
-      <main className="profile-shell">
-        <div className="profile-content app-container">
-          <header className="profile-header">
-            <Image
-              src="/etern-logo.png"
-              alt="Etern Learning"
-              width={180}
-              height={60}
-              priority
-              className="profile-logo"
-            />
-          </header>
+      <main className="profile-shell app-container">
+        <header className="profile-header">
+          <Image
+            src="/etern-logo.png"
+            alt="Etern Learning"
+            width={180}
+            height={60}
+            priority
+            className="profile-logo"
+          />
+        </header>
 
-          <section className="profile-hero">
-            <div className="profile-copy">
+        <div className="profile-bottom-group">
+          <div className="profile-carousel-header">
+            <div className="profile-copy profile-carousel-copy">
               <div className="profile-kicker-mark" aria-hidden="true">
                 <Image
                   src="/icons/star.png"
@@ -118,7 +151,14 @@ export default function Page() {
                 your learning journey.
               </p>
             </div>
-          </section>
+
+            <div className="profile-carousel-meta" aria-hidden="true">
+              <h2 className="profile-carousel-name">{selectedBuddy}</h2>
+              <p className="profile-carousel-subtitle">
+                Brave &bull; Curious &bull; Loves Coding
+              </p>
+            </div>
+          </div>
 
           <section
             className="profile-selector"
@@ -129,28 +169,18 @@ export default function Page() {
               className="profile-nav-button profile-nav-button--left"
               aria-label="Previous buddy"
             >
-              <Image
-                src="/icons/black-white-arrow.png"
-                alt=""
-                width={22}
-                height={22}
-                aria-hidden="true"
-                className="profile-nav-icon profile-nav-icon--left"
-              />
+              <ArrowIcon direction="left" />
             </button>
 
             <div className="profile-card-row">
               {buddies.map((buddy) => (
-                <article
+                <button
                   key={buddy.name}
-                  className={`profile-card ${buddy.selected ? 'profile-card--selected' : ''}`}
+                  type="button"
+                  className={`profile-card ${selectedBuddy === buddy.name ? 'profile-card--selected' : ''}`}
+                  aria-pressed={selectedBuddy === buddy.name}
+                  onClick={() => setSelectedBuddy(buddy.name)}
                 >
-                  {buddy.selected ? (
-                    <span className="profile-card-check" aria-hidden="true">
-                      <span />
-                    </span>
-                  ) : null}
-
                   <div className="profile-card-art">
                     <Image
                       src={buddy.image}
@@ -170,7 +200,7 @@ export default function Page() {
                     </h3>
                     <p className="profile-card-role">{buddy.role}</p>
                   </div>
-                </article>
+                </button>
               ))}
             </div>
 
@@ -179,14 +209,7 @@ export default function Page() {
               className="profile-nav-button profile-nav-button--right"
               aria-label="Next buddy"
             >
-              <Image
-                src="/icons/black-white-arrow.png"
-                alt=""
-                width={22}
-                height={22}
-                aria-hidden="true"
-                className="profile-nav-icon"
-              />
+              <ArrowIcon direction="right" />
             </button>
           </section>
 
