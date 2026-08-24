@@ -1,9 +1,5 @@
-import React from 'react'
+import Starting from './pages/introduction/Starting'
 
-const page = () => {
-  return (
-    <div>page</div>
-  )
+export default function Page() {
+  return <Starting />
 }
-
-export default page
