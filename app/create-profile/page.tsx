@@ -22,42 +22,7 @@ const profiles = [
 const Page = () => {
   return (
     <section className="create-profile-page">
-      <header className="create-profile-header app-container">
-        <Image
-          src="/etern-white-logo.png"
-          alt="Etern Learning"
-          width={160}
-          height={54}
-          priority
-          className="create-profile-logo"
-        />
-      </header>
-
-      <section className="create-profile-hero">
-        <div className="create-profile-hero-inner app-container">
-          <div className="create-profile-hero-grid">
-            <div className="create-profile-copy">
-              <h1 className="create-profile-title">
-                Choose your profile
-              </h1>
-              <p className="create-profile-subtitle">
-                Pick a profile to continue your learning adventure!
-              </p>
-            </div>
-
-            <div className="create-profile-hero-art" aria-hidden="true">
-              <div className="create-profile-hero-character">
-                <Image
-                  src="/characters/tiger.png"
-                  alt=""
-                  fill
-                  sizes="(max-width: 900px) 80vw, 420px"
-                  className="create-profile-hero-character-image"
-                  priority
-                />
-              </div>
-
-              <div className="create-profile-decoration create-profile-decoration--book">
+       <div className="create-profile-decoration create-profile-decoration--book">
                 <Image
                   src="/icons/open-book.png"
                   alt=""
@@ -96,6 +61,42 @@ const Page = () => {
                   className="create-profile-decoration-image"
                 />
               </div>
+      <header className="create-profile-header app-container">
+        <Image
+          src="/etern-white-logo.png"
+          alt="Etern Learning"
+          width={160}
+          height={54}
+          priority
+          className="create-profile-logo"
+        />
+      </header>
+
+      <section className="create-profile-hero">
+        <div className="create-profile-hero-inner app-container">
+          <div className="create-profile-hero-grid">
+            <div className="create-profile-copy">
+              <h1 className="create-profile-title">
+                Choose your profile
+              </h1>
+              <p className="create-profile-subtitle">
+                Pick a profile to continue your learning adventure!
+              </p>
+            </div>
+
+            <div className="create-profile-hero-art" aria-hidden="true">
+              <div className="create-profile-hero-character">
+                <Image
+                  src="/characters/tiger.png"
+                  alt=""
+                  fill
+                  sizes="(max-width: 900px) 80vw, 420px"
+                  className="create-profile-hero-character-image"
+                  priority
+                />
+              </div>
+
+             
             </div>
           </div>
         </div>
