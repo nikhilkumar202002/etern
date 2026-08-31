@@ -86,27 +86,20 @@
   min-height: 36svh;
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 0.95fr);
-  align-items: center;
+  align-items: start;
   gap: clamp(1rem, 3vw, 3rem);
-}
-
-.create-profile-copy {
-  max-width: 31rem;
 }
 
 .create-profile-title {
   margin: 0;
   font-size: clamp(2.6rem, 4.3vw, 4.2rem);
   line-height: 0.95;
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  max-width: 8ch;
-  text-wrap: balance;
+  font-weight: 600;
 }
 
 .create-profile-subtitle {
   margin: 0.9rem 0 0;
-  max-width: 20ch;
+  max-width: 40%;
   font-size: clamp(0.92rem, 1.1vw, 1.05rem);
   line-height: 1.4;
   color: rgba(255, 255, 255, 0.96);
@@ -201,9 +194,11 @@
   background: #ffffff;
   color: #2c3440;
   padding-top: clamp(0.75rem, 1.5vw, 1.1rem);
-  padding-bottom: clamp(0.75rem, 1.6vw, 1.2rem);
+  padding-bottom: 50px;
 }
-
+.create-profile-copy{
+  padding-top: 65px;
+}
 .create-profile-content-inner {
   height: 100%;
   display: flex;

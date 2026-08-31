@@ -38,9 +38,7 @@ const Page = () => {
           <div className="create-profile-hero-grid">
             <div className="create-profile-copy">
               <h1 className="create-profile-title">
-                <span>Choose</span>
-                <br />
-                <span>your profile</span>
+                Choose your profile
               </h1>
               <p className="create-profile-subtitle">
                 Pick a profile to continue your learning adventure!
