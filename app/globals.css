@@ -370,8 +370,8 @@
 }
 
 .create-profile-cta-button {
-  width: 3.6rem;
-  height: 3.6rem;
+  width: 4.15rem;
+  height: 4.15rem;
   border: 0;
   border-radius: 999px;
   background: #7fd64f;
@@ -379,11 +379,15 @@
   display: grid;
   place-items: center;
   cursor: pointer;
+  padding: 0;
+  line-height: 0;
 }
 
 .create-profile-cta-icon {
-  width: 1.45rem;
-  height: 1.45rem;
+  width: 2rem;
+  height: 2rem;
+  display: block;
+  object-fit: contain;
 }
 
 /* create child profile */

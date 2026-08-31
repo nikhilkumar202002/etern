@@ -177,6 +177,23 @@ const Page = () => {
           }}
         />
       </div>
+
+         <div className="create-profile-cta absolute">
+                  <button
+                    type="button"
+                    className="create-profile-cta-button"
+                    aria-label="Continue"
+                  >
+                    <Image
+                      src="/icons/black-white-arrow.png"
+                      alt=""
+                      width={35}
+                      height={0}
+                      aria-hidden="true"
+                      className="create-profile-cta-icon"
+                    />
+                  </button>
+                </div>
     </section>
   );
 };
