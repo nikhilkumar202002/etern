@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import Form from "../components/ui/Form"
 
 const Page = () => {
   return (
@@ -23,6 +24,10 @@ const Page = () => {
           className="create-profile-logo"
         />
       </header>
+
+          <div className="form-box">
+          <Form/>
+      </div>
 
       <div>
         <div className="app-container">
@@ -94,11 +99,7 @@ const Page = () => {
         />
       </div>
 
-      <div className="form-box">
-        <div className="form-container">
-            
-        </div>
-      </div>
+  
     </section>
   )
 }
