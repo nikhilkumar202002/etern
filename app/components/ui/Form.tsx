@@ -58,7 +58,7 @@ type FormProps = {
   width?: string
 }
 
-const Form = ({ width = 'min(100%, 550px)' }: FormProps) => {
+const Form = ({ width = 'min(100%, 680px)' }: FormProps) => {
   return (
     <div
       className="form-container"

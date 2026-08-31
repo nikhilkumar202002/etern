@@ -1,6 +1,6 @@
 .form-container {
   display: inline-block;
-  width: var(--form-width, min(100%, 340px));
+  width: min(100%, 680px);
   box-sizing: border-box;
   padding: 36px 18px 18px;
   border-radius: 28px;
