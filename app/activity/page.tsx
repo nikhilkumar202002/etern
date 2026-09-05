@@ -164,6 +164,13 @@ const Page = () => {
         </div>
 
         <div className="activity-footer-copy">
+             <Image
+            src="/icons/flower.png"
+            alt=""
+            width={118}
+            height={70}
+            aria-hidden="true"
+          />
           <div>
             <h2>A Safe Space To Learn And Grow</h2>
             <p>We personalise learning for your child&apos;s bright future</p>
