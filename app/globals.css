@@ -72,19 +72,34 @@
     line-height: 1.2;
   }
 
-  .activity-choice-label  span{
+  .activity-choice-label {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1.15rem;
-    /* min-width: 13rem; */
+    gap: 14px;
+    width: 330px;
     margin-top: 1.25rem;
-    padding: 0.62rem 1.55rem;
+  }
+
+  .activity-choice-label > img {
+    flex: 0 0 30px;
+    width: 30px;
+    height: auto;
+  }
+
+  .activity-choice-label span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 234px;
+    height: 53px;
+    padding: 0;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.94);
     color: #f58220;
-    font-size: 20px;
-    font-weight: 700;
+    font-size: 22px;
+    font-weight: 550;
+    font-family: var(--font-fredoka), sans-serif;
   }
 
   .activity-choice-mark {
@@ -159,14 +174,14 @@
     justify-content: space-between;
     gap: 0.75rem;
     min-height: 3.3rem;
-    padding: 0.5rem 0.8rem 0.55rem 1.25rem;
+    padding: 15px 20px;
   }
 
   .activity-card-title {
     margin: 0;
-    font-size: 1rem;
+    font-size: 25px;
     line-height: 1.1;
-    font-weight: 700;
+    font-weight: 550;
   }
 
   .activity-card-title--blue { color: #23a9e8; }
@@ -175,7 +190,7 @@
 
   .activity-card-footer p {
     margin: 0.18rem 0 0;
-    font-size: 0.7rem;
+    font-size: 16px;
     line-height: 1.1;
     color: #777777;
   }
@@ -184,15 +199,26 @@
     display: grid;
     flex: 0 0 auto;
     place-items: center;
-    width: 2.1rem;
-    height: 2.1rem;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
-    background: #e7f7fb;
+  }
+
+  .activity-card--blue .activity-card-arrow {
+    background: #dff5fb;
+  }
+
+  .activity-card--orange .activity-card-arrow {
+    background: #fff0df;
+  }
+
+  .activity-card--green .activity-card-arrow {
+    background: #e9f7df;
   }
 
   .activity-card-arrow img {
-    width: 1rem;
-    height: 1rem;
+    width: 25px;
+    height: auto;
   }
 
   .activity-footer-copy {
@@ -320,6 +346,17 @@
 
     .activity-content {
       padding-top: 2.25rem;
+    }
+
+    .activity-choice-label {
+      width: 300px;
+      gap: 10px;
+    }
+
+    .activity-choice-label span {
+      flex-basis: 210px;
+      height: 48px;
+      font-size: 18px;
     }
 
     .activity-card-grid {
