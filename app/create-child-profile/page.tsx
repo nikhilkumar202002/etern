@@ -80,7 +80,7 @@ const Page = () => {
               position: "absolute",
               zIndex: 0,
               top: 135,
-              left: 535,
+              left: 568,
             }}
           />
         </div>

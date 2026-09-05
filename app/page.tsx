@@ -1,4 +1,4 @@
-import Starting from './pages/introduction/Starting'
+import Starting from './introduction/Starting'
 
 export default function Page() {
   return <Starting />
