@@ -42,8 +42,8 @@ const Page = () => {
               <Image
                 src="/characters/tiggy.png"
                 alt=""
-                width={48}
-                height={48}
+                width={30}
+                height={30}
                 aria-hidden="true"
               />
             </span>

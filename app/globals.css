@@ -325,13 +325,16 @@
   }
 
   .activity-nav-icon--task img {
-    width: 48px;
-    height: 48px;
+    width: 30px;
+    height: 30px;
   }
 
   .activity-nav-icon--tiggy img {
     object-fit: cover;
     object-position: center top;
+    width: 30px;
+    position: relative;
+    bottom: -10px;
   }
 
   .activity-nav-icon--tiggy {
