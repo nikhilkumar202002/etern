@@ -381,6 +381,15 @@
   cursor: pointer;
   padding: 0;
   line-height: 0;
+  text-decoration: none;
+  color: inherit;
+}
+.create-profile-cta-button-white{
+  background-color: white;
+  box-shadow: 0 16px 30px rgba(102, 179, 49, 0.26);
+  text-decoration: none;
+  color: inherit;
+
 }
 
 .create-profile-cta-icon {
@@ -665,10 +674,12 @@
 }
 
 .form-box {
-  position: relative;
-  justify-self: end;
-  align-self: end;
-  width: min(100%, 430px);
+  position: absolute;
+  right: clamp(1rem, 7.5vw, 10rem);
+  top: clamp(9.75rem, 22vh, 13.5rem);
+  z-index: 6;
+  width: min(100%, 550px);
+  pointer-events: auto;
 }
 
 .form-container {
@@ -788,6 +799,13 @@
   .create-child-profile-card {
     justify-self: center;
   }
+
+  .form-box {
+    right: 50%;
+    top: clamp(12rem, 19vh, 14rem);
+    transform: translateX(50%);
+    width: min(100%, 520px);
+  }
 }
 
 @media (max-width: 700px) {
@@ -815,13 +833,10 @@
   .create-child-profile-footer {
     margin-top: calc(-1 * clamp(34px, 4.8vh, 56px));
   }
-}
-
-
-/* form */
-.form-box{
-  position: absolute;
-  right: 18%;
-  top: 20%;
-  z-index: 999;
+  .form-box {
+    right: 50%;
+    top: 9.5rem;
+    transform: translateX(50%);
+    width: min(100%, calc(100vw - 1.5rem));
+  }
 }

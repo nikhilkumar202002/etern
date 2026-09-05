@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import '../pages/Styles.css'
 
 const buddies = [
@@ -214,7 +215,7 @@ export default function Page() {
           </section>
 
           <div className="profile-cta-wrap">
-            <button type="button" className="profile-cta" aria-label="Continue">
+            <Link href="/" className="profile-cta" aria-label="Continue">
               <Image
                 src="/icons/black-white-arrow.png"
                 alt=""
@@ -223,7 +224,7 @@ export default function Page() {
                 aria-hidden="true"
                 className="profile-cta-icon"
               />
-            </button>
+            </Link>
           </div>
         </div>
       </main>

@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import '../Styles.css'
 
 const Starting = () => {
@@ -44,11 +45,7 @@ const Starting = () => {
               Discover playful lessons, calm progress, and a space that feels welcoming from the first tap.
             </p>
 
-            <button
-              type="button"
-              className="starting-button group"
-              aria-label="Continue"
-            >
+            <Link href="/create-profile" className="starting-button group" aria-label="Continue">
               <Image
                 src="/icons/black-white-arrow.png"
                 alt=""
@@ -57,7 +54,7 @@ const Starting = () => {
                 aria-hidden="true"
                 className="starting-arrow-icon"
               />
-            </button>
+            </Link>
 
             <p className="starting-login">
               Already have an account?{' '}

@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 import Form from "../components/ui/Form";
 
 const Page = () => {
@@ -12,6 +13,7 @@ const Page = () => {
         display: "flex",
         flexDirection: "column",
         overflow: "hidden",
+        position: "relative",
       }}
     >
       <header className="create-profile-header app-container">
@@ -127,12 +129,12 @@ const Page = () => {
           <Image
             src="/icons/hat.png"
             alt=""
-            width={737}
-            height={1017}
+            width={600}
+            height={600}
             aria-hidden="true"
             quality={100}
             style={{
-              width: "120px",
+              width: "90px",
               height: "auto",
               display: "block",
               position: "absolute",
@@ -178,22 +180,32 @@ const Page = () => {
         />
       </div>
 
-         <div className="create-profile-cta absolute">
-                  <button
-                    type="button"
-                    className="create-profile-cta-button"
-                    aria-label="Continue"
-                  >
-                    <Image
-                      src="/icons/black-white-arrow.png"
-                      alt=""
-                      width={35}
-                      height={0}
-                      aria-hidden="true"
-                      className="create-profile-cta-icon"
-                    />
-                  </button>
-                </div>
+      <div
+        className="create-profile-cta"
+        style={{
+          position: "absolute",
+          left: "50%",
+          bottom: "100px",
+          transform: "translateX(-50%)",
+          zIndex: 20,
+          marginTop: 0,
+        }}
+      >
+        <Link
+          href="/profile"
+          className="create-profile-cta-button create-profile-cta-button-white"
+          aria-label="Continue"
+        >
+          <Image
+            src="/icons/black-blue-arrow.png"
+            alt=""
+            width={35}
+            height={0}
+            aria-hidden="true"
+            className="create-profile-cta-icon"
+          />
+        </Link>
+      </div>
     </section>
   );
 };

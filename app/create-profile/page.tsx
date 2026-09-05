@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 
 const profiles = [
   {
@@ -177,8 +178,8 @@ const Page = () => {
           </div>
 
           <div className="create-profile-cta">
-            <button
-              type="button"
+            <Link
+              href="/create-child-profile"
               className="create-profile-cta-button"
               aria-label="Continue"
             >
@@ -190,7 +191,7 @@ const Page = () => {
                 aria-hidden="true"
                 className="create-profile-cta-icon"
               />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
