@@ -68,37 +68,33 @@
     grid-template-columns: auto 1fr;
     gap: 0.65rem;
     align-items: center;
-    padding: 1rem;
+    align-content: space-between;
+    min-height: 0;
+    padding: 30px;
     border-radius: 1.2rem;
     background: rgba(224, 248, 255, 0.86);
     color: #222f40;
   }
 
-  .streak-summary-icon {
-    width: 3rem;
-    height: 3rem;
-    display: grid;
-    place-items: center;
-    border-radius: 0.7rem;
-    background: linear-gradient(180deg, #fb43af, #fc2482);
-  }
+
 
   .streak-summary-icon img {
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 80px;
+    height: auto;
     object-fit: contain;
   }
 
   .streak-eyebrow {
     margin: 0;
-    font-size: 0.84rem;
+    font-size: 18px;
   }
 
   .streak-summary h1 {
     margin: 0.12rem 0 0;
     color: #ff8b17;
-    font-size: 1.45rem;
+    font-size: 32px;
     line-height: 1;
+    font-weight: 550;
   }
 
   .streak-week {
@@ -114,14 +110,14 @@
     display: grid;
     justify-items: center;
     gap: 0.22rem;
-    font-size: 0.6rem;
+    font-size: 16px;
   }
 
   .streak-week b {
     display: grid;
     place-items: center;
-    width: 1.25rem;
-    height: 1.25rem;
+    width: 2rem;
+    height: 2rem;
     border-radius: 50%;
     background: #32c993;
     color: #ffffff;
@@ -133,7 +129,10 @@
   }
 
   .streak-progress {
-    padding: 1rem;
+    min-height: 0;
+    display: grid;
+    grid-template-rows: auto minmax(0, 1fr);
+    padding: 30px;
     border-radius: 1.2rem;
     background: linear-gradient(145deg, #8353e6, #4930c8);
     color: #ffffff;
@@ -141,11 +140,13 @@
 
   .streak-progress h2 {
     margin: 0 0 0.8rem;
-    font-size: 1rem;
+    font-size: 25px;
     font-weight: 600;
   }
 
   .streak-progress-grid {
+    min-height: 0;
+    height: 100%;
     display: grid;
     grid-template-columns: 1.1fr 1fr 0.8fr;
     gap: 0.4rem;
@@ -153,18 +154,43 @@
   }
 
   .streak-progress-ring {
+    position: relative;
+    isolation: isolate;
     display: grid;
     place-items: center;
     align-content: center;
-    width: 5rem;
-    height: 5rem;
-    border: 0.55rem solid #24caec;
-    border-top-color: #7de758;
+    width: 6.5rem;
+    height: 6.5rem;
+    border: 0;
     border-radius: 50%;
+    background: conic-gradient(
+      from -90deg,
+      #7df34a 0 25%,
+      #18cbed 25% 75%,
+      rgba(255, 255, 255, 0.92) 75% 100%
+    );
+    filter: drop-shadow(0 0.35rem 0.18rem rgba(33, 24, 117, 0.28));
+  }
+
+  .streak-progress-ring::before {
+    position: absolute;
+    inset: 0.55rem;
+    z-index: -1;
+    border-radius: inherit;
+    background: linear-gradient(145deg, #7d4dec 0%, #3423b8 100%);
+    box-shadow: inset 0 0.18rem 0.35rem rgba(255, 255, 255, 0.24),
+      inset 0 -0.28rem 0.4rem rgba(25, 17, 111, 0.42);
+    content: '';
+  }
+
+  .streak-progress-ring strong,
+  .streak-progress-ring span {
+    position: relative;
+    z-index: 1;
   }
 
   .streak-progress-ring strong {
-    font-size: 1.15rem;
+    font-size: 1.35rem;
     line-height: 1;
   }
 
@@ -177,7 +203,8 @@
     display: grid;
     justify-items: center;
     align-content: center;
-    min-height: 5rem;
+    min-height: 0;
+    height: 100%;
     border-radius: 0.65rem;
     background: rgba(255, 255, 255, 0.16);
     text-align: center;
@@ -360,8 +387,8 @@
   .streak-learning-arrow {
     display: grid;
     place-items: center;
-    width: 2.6rem;
-    height: 2.6rem;
+    width: 2.8rem;
+    height: 2.8rem;
     border-radius: 50%;
     background: #ccd3f1;
     color: #513bc7;
