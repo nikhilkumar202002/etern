@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import '../Styles.css'
+import '../pages/Styles.css'
 
 const Starting = () => {
   return (

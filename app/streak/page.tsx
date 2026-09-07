@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import './Streak.css'
 
 const Page = () => {
   return (
@@ -100,33 +101,45 @@ const Page = () => {
 
         <div className="streak-main">
           <section className="streak-card streak-fun">
-            <h2><span>~</span> Choose fun <span>~</span></h2>
+           <div className="streak-grid-heading">
+    <Image
+                src="/icons/orange-sparkle-right.png"
+                alt=""
+                width={16}
+                height={32}
+                aria-hidden="true"
+                className="streak-fun-spark streak-fun-spark--left"
+              />
+              <h2>Choose fun</h2>
+              <Image
+                src="/icons/orange-sparkle-right.png"
+                alt=""
+                width={16}
+                height={32}
+                aria-hidden="true"
+                className="streak-fun-spark"
+              />
+           </div>
+          
+        
             <div className="streak-fun-grid">
-              <a href="#stories" className="streak-fun-card streak-fun-card--green">
-                <Image src="/icons/open-book.png" alt="" width={80} height={80} />
-                <strong>STORIES</strong>
-                <span>18 / 30</span>
+              <a href="#stories" className="streak-fun-card" aria-label="Stories">
+                <Image src="/images/stories-3.png" alt="Stories" fill sizes="(max-width: 760px) 50vw, 20vw" />
               </a>
-              <a href="#self-help" className="streak-fun-card streak-fun-card--orange">
-                <Image src="/characters/tiggy.png" alt="" width={80} height={80} />
-                <strong>SELF HELP</strong>
-                <span>12 / 20</span>
+              <a href="#self-help" className="streak-fun-card" aria-label="Self help">
+                <Image src="/images/stories-1.png" alt="Self help" fill sizes="(max-width: 760px) 50vw, 20vw" />
               </a>
-              <a href="#mindful" className="streak-fun-card streak-fun-card--blue">
-                <Image src="/icons/star.png" alt="" width={80} height={80} />
-                <strong>SELF HELP</strong>
-                <span>15 / 25</span>
+              <a href="#mindful" className="streak-fun-card" aria-label="Mindful">
+                <Image src="/images/stories-2.png" alt="Mindful" fill sizes="(max-width: 760px) 50vw, 20vw" />
               </a>
-              <a href="#science" className="streak-fun-card streak-fun-card--violet">
-                <Image src="/icons/open-book.png" alt="" width={80} height={80} />
-                <strong>SELF HELP</strong>
-                <span>Unlock at Level 5</span>
+              <a href="#science" className="streak-fun-card" aria-label="Science">
+                <Image src="/images/stories-4.png" alt="Science" fill sizes="(max-width: 760px) 50vw, 20vw" />
               </a>
             </div>
           </section>
 
           <a href="#jungle-book" className="streak-learning">
-            <Image src="/characters/tiger.png" alt="" width={76} height={76} />
+            <Image src="/images/chapter.jpg" alt="" width={76} height={76} />
             <div className="streak-learning-copy">
               <p>Continue Learning</p>
               <h2>The Jungle Book</h2>
@@ -136,7 +149,9 @@ const Page = () => {
               <span><b /></span>
               <small>64%</small>
             </div>
-            <span className="streak-learning-arrow">&gt;</span>
+            <span className="streak-learning-arrow" aria-hidden="true">
+              <Image src="/icons/black-violet-arrow.png" alt="" width={24} height={24} />
+            </span>
           </a>
         </div>
       </section>
