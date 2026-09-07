@@ -94,7 +94,7 @@ const Page = () => {
                     {story.stars && (
                       <span className="story-stars" aria-label={`${story.stars} stars`}>
                         {Array.from({ length: story.stars }, (_, star) => (
-                          <Image key={star} src="/icons/star.png" alt="" width={22} height={22} aria-hidden="true" />
+                          <Image key={star} src="/icons/star-2.png" alt="" width={22} height={22} aria-hidden="true" />
                         ))}
                       </span>
                     )}
