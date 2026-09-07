@@ -1,0 +1,131 @@
+.profile-options-page {
+  min-height: 100svh;
+  width: 100%;
+  background-image: url('/background/profile-options.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.profile-options-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 86px;
+  gap: 1rem;
+}
+
+.profile-options-logo {
+  display: block;
+  width: 140px;
+  height: auto;
+}
+
+.profile-options-account {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  width: min(100%, 40%);
+  min-width: 0;
+  margin-left: auto;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 8px 18px rgba(18, 105, 173, 0.16);
+}
+
+.profile-options-avatar {
+  position: relative;
+  width: 2.8rem;
+  height: 2.8rem;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #f59b2f;
+  display: flex;
+  align-items: center;
+
+}
+.profile-options-account-info{
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+.profile-options-avatar img {
+  object-fit: cover;
+  object-position: center top;
+}
+
+.profile-options-account-copy {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.profile-options-account-copy strong {
+  color: #ff8b17;
+  font-size: 0.9rem;
+}
+
+.profile-options-account-copy span {
+  color: #6e6e6e;
+  font-size: 0.7rem;
+}
+
+.profile-options-balloon {
+  width: 3.8rem;
+  height: 3.8rem;
+  margin: 0 1rem 0 0.5rem;
+  object-fit: contain;
+}
+
+.profile-options-edit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-width: 7rem;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  background: #754cdf;
+  color: #ffffff;
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+
+.profile-options-edit svg {
+  width: 0.95rem;
+  height: 0.95rem;
+}
+
+@media (max-width: 640px) {
+  .profile-options-header {
+    min-height: 72px;
+    gap: 0.45rem;
+  }
+
+  .profile-options-logo {
+    width: 112px;
+  }
+
+  .profile-options-account {
+    width: auto;
+    min-width: 0;
+    padding-right: 0.65rem;
+  }
+
+  .profile-options-account-copy span,
+  .profile-options-balloon {
+    display: none;
+  }
+
+  .profile-options-edit {
+    min-width: 0;
+    padding: 0.65rem;
+  }
+
+  .profile-options-edit span {
+    display: none;
+  }
+}
