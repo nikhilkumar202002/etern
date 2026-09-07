@@ -1,0 +1,6 @@
+.stories-page{
+    background-image: url("/background/stories-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
