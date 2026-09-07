@@ -1,5 +1,6 @@
 import './Stories.css'
 import Image from 'next/image'
+import { IoIosLock } from 'react-icons/io'
 
 const categories = [
   { label: 'All Stories', icon: '/icons/all-stories.png', active: true },
@@ -100,7 +101,7 @@ const Page = () => {
                     )}
                     {story.locked && (
                       <span className="story-locked">
-                        <span className="story-lock-icon" aria-hidden="true" /> Unlock at level 5
+                        <IoIosLock aria-hidden="true" /> Unlock at level 5
                       </span>
                     )}
                   </div>
