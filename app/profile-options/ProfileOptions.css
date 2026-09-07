@@ -1,6 +1,10 @@
 .profile-options-page {
+  height: 100svh;
   min-height: 100svh;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
   background-image: url('/background/profile-options.jpg');
   background-position: center;
   background-repeat: no-repeat;
@@ -28,10 +32,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.6rem;
-  width: min(100%, 40%);
+  width: auto;
   min-width: 0;
   margin-left: auto;
-  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  padding: 8px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 8px 18px rgba(18, 105, 173, 0.16);
@@ -127,5 +131,143 @@
 
   .profile-options-edit span {
     display: none;
+  }
+}
+
+.profile-options-grid {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 1.1rem 1.25rem;
+  width: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.profile-option-card {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  align-content: space-between;
+  min-height: 0;
+  padding: 40px 0px;
+  border-radius: 1.45rem;
+  color: #111111;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: inset 0 -0.55rem 0 rgba(72, 96, 173, 0.16);
+  transition: transform 160ms ease, filter 160ms ease;
+}
+
+.profile-option-card:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.03);
+}
+
+.profile-option-icon {
+  display: grid;
+  place-items: center;
+  height: 5.4rem;
+}
+
+.profile-option-icon img {
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+}
+
+.profile-option-card--games .profile-option-icon img {
+  width: 200px;
+  height: auto;
+}
+
+.profile-option-card--profile .profile-option-icon img {
+  width: 150px;
+}
+
+.profile-option-card strong {
+  margin-top: 0.15rem;
+  font-size: 1.05rem;
+  line-height: 1.1;
+}
+
+.profile-option-copy {
+  display: grid;
+  justify-items: center;
+  gap: 0.25rem;
+}
+
+.profile-option-copy strong {
+  margin-top: 0;
+  font-size: 25px;
+  color: #111111;
+  font-weight: 550;
+  font-family: var(--font-fredoka), sans-serif;
+}
+
+.profile-option-copy > span {
+  color: #666666;
+  font-size: 0.72rem;
+}
+
+.profile-option-card > span:last-of-type {
+  margin-top: 0.25rem;
+  color: #666666;
+  font-size: 0.72rem;
+}
+
+.profile-option-card--games { background: #e7d7ff; box-shadow: inset 0 -0.55rem 0 #c89cf5; }
+.profile-option-card--subscription { background: #d9f5ee; box-shadow: inset 0 -0.55rem 0 #9ce4cf; }
+.profile-option-card--performance { background: #d8efff; box-shadow: inset 0 -0.55rem 0 #9dd5f5; }
+.profile-option-card--profile { background: #ffe5d8; box-shadow: inset 0 -0.55rem 0 #ffc1aa; }
+.profile-option-card--messages { background: #fff3d4; box-shadow: inset 0 -0.55rem 0 #f4db9b; }
+.profile-option-card--logout { background: #fbddec; box-shadow: inset 0 -0.55rem 0 #f1b0d0; }
+
+.profile-option-badge {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  display: grid;
+  place-items: center;
+  min-width: 2rem;
+  height: 1.65rem;
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  background: #ff513e;
+  color: #ffffff;
+  font-size: 0.72rem;
+}
+
+.profile-option-badge--new {
+  min-width: 2.15rem;
+  background: #ff554d;
+}
+
+.profile-option-badge--count {
+  top: 1.25rem;
+  right: calc(50% - 2.8rem);
+  width: 1.35rem;
+  min-width: 1.35rem;
+  height: 1.35rem;
+  padding: 0;
+}
+
+@media (max-width: 760px) {
+  .profile-options-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(3, minmax(9.7rem, 1fr));
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-options-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+    grid-auto-rows: minmax(9.7rem, auto);
   }
 }
