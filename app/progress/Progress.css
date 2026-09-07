@@ -1,0 +1,8 @@
+.progress-page {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-height: 100svh;
+  overflow: hidden;
+  background: #41b6f2 url('/background/learning-buddy.jpg') center / cover no-repeat;
+}
