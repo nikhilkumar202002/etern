@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import "./LearningBuddy.css";
 import Image from "next/image";
 import Link from "next/link";
@@ -15,20 +15,38 @@ const buddies = [
 
 const Page = () => {
   const [selectedBuddyName, setSelectedBuddyName] = useState("Tiggy");
-  const selectedBuddy = buddies.find((buddy) => buddy.name === selectedBuddyName) ?? buddies[0];
+  const cardsRef = useRef<HTMLDivElement>(null);
+
+  const selectedBuddy =
+    buddies.find((buddy) => buddy.name === selectedBuddyName) ?? buddies[0];
+
+  const handleSelect = (name: string, index: number) => {
+    setSelectedBuddyName(name);
+    if (cardsRef.current) {
+      const cards =
+        cardsRef.current.querySelectorAll<HTMLElement>(".learning-buddy-card");
+      if (cards[index]) {
+        cards[index].scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      }
+    }
+  };
 
   return (
     <main className="learning-buddy-page">
       <header className="activity-header app-container">
         <Link href="/activity" aria-label="Go to activities">
           <Image
-          src="/etern-white-logo.png"
-          alt="Etern Learning"
-          width={160}
-          height={54}
-          priority
-          className="activity-logo"
-        />
+            src="/etern-white-logo.png"
+            alt="Etern Learning"
+            width={160}
+            height={54}
+            priority
+            className="activity-logo"
+          />
         </Link>
 
         <nav className="activity-nav" aria-label="Activity navigation">
@@ -48,14 +66,14 @@ const Page = () => {
           <Link href="/profile-options" className="activity-nav-link">
             <span className="activity-nav-icon activity-nav-icon--tiggy">
               <Image
-                src="/characters/tiggy.png"
+                src={selectedBuddy.image}
                 alt=""
                 width={30}
                 height={30}
                 aria-hidden="true"
               />
             </span>
-            <span>Tiggy</span>
+            <span>{selectedBuddy.name}</span>
           </Link>
         </nav>
       </header>
@@ -70,7 +88,7 @@ const Page = () => {
         </section>
 
         <section
-          className="learning-buddy-content "
+          className="learning-buddy-content"
           aria-label="Learning buddy selection"
         >
           <article className="learning-buddy-preview">
@@ -84,28 +102,27 @@ const Page = () => {
                 alt={selectedBuddy.name}
                 width={260}
                 height={390}
+                priority
               />
             </div>
           </article>
 
           <div className="learning-buddy-selection">
-            <div className="learning-buddy-cards">
-              {buddies.map((buddy) => (
-                <a
+            <div className="learning-buddy-cards" ref={cardsRef}>
+              {buddies.map((buddy, index) => (
+                <button
                   key={buddy.name}
-                  href={`#${buddy.name.toLowerCase()}`}
-                  onClick={(event) => {
-                    event.preventDefault();
-                    setSelectedBuddyName(buddy.name);
-                  }}
+                  type="button"
+                  onClick={() => handleSelect(buddy.name, index)}
                   className={`learning-buddy-card${selectedBuddy.name === buddy.name ? " is-selected" : ""}`}
+                  aria-pressed={selectedBuddy.name === buddy.name}
                 >
                   <div className="learning-buddy-card-image">
                     <Image
                       src={buddy.image}
                       alt={buddy.name}
                       fill
-                      sizes="150px"
+                      sizes="(max-width: 768px) 130px, 150px"
                     />
                   </div>
                   <h2>{buddy.name}</h2>
@@ -117,7 +134,7 @@ const Page = () => {
                       <FiCheck aria-hidden="true" />
                     </span>
                   )}
-                </a>
+                </button>
               ))}
             </div>
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import '../pages/Styles.css'
@@ -9,6 +9,7 @@ const buddies = [
   {
     name: 'Bunny',
     role: 'Creative Dreamer',
+    traits: 'Imaginative • Artistic • Big Dreams',
     image: '/characters/bunny.png',
     accent: '#2ea8e6',
     selected: false,
@@ -16,6 +17,7 @@ const buddies = [
   {
     name: 'Tiggy',
     role: 'Brave Explorer',
+    traits: 'Brave • Curious • Loves Coding',
     image: '/characters/tiggy.png',
     accent: '#f68b1f',
     selected: true,
@@ -23,6 +25,7 @@ const buddies = [
   {
     name: 'Pingu',
     role: 'Smart Thinker',
+    traits: 'Analytical • Logical • Loves Puzzles',
     image: '/characters/pingu.png',
     accent: '#b35df6',
     selected: false,
@@ -30,6 +33,7 @@ const buddies = [
   {
     name: 'Brighty',
     role: 'Fast Learner',
+    traits: 'Quick • Energetic • Loves Science',
     image: '/characters/brighty.png',
     accent: '#e85bd9',
     selected: false,
@@ -37,6 +41,7 @@ const buddies = [
   {
     name: 'Coco',
     role: 'Gentle Helper',
+    traits: 'Kind • Patient • Loves Stories',
     image: '/characters/coco.png',
     accent: '#53c86f',
     selected: false,
@@ -73,6 +78,41 @@ function ArrowIcon({ direction }: { direction: 'left' | 'right' }) {
 
 export default function Page() {
   const [selectedBuddy, setSelectedBuddy] = useState<BuddyName>(defaultBuddy)
+  const cardRowRef = useRef<HTMLDivElement>(null)
+
+  const currentBuddy =
+    buddies.find((buddy) => buddy.name === selectedBuddy) ?? buddies[0]
+
+  const scrollToCard = (index: number) => {
+    if (cardRowRef.current) {
+      const cards =
+        cardRowRef.current.querySelectorAll<HTMLElement>('.profile-card')
+      if (cards[index]) {
+        cards[index].scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center',
+        })
+      }
+    }
+  }
+
+  const handleSelect = (name: BuddyName, index: number) => {
+    setSelectedBuddy(name)
+    scrollToCard(index)
+  }
+
+  const handlePrev = () => {
+    const currentIndex = buddies.findIndex((b) => b.name === selectedBuddy)
+    const prevIndex = currentIndex > 0 ? currentIndex - 1 : buddies.length - 1
+    handleSelect(buddies[prevIndex].name, prevIndex)
+  }
+
+  const handleNext = () => {
+    const currentIndex = buddies.findIndex((b) => b.name === selectedBuddy)
+    const nextIndex = currentIndex < buddies.length - 1 ? currentIndex + 1 : 0
+    handleSelect(buddies[nextIndex].name, nextIndex)
+  }
 
   return (
     <section className="profile-page">
@@ -154,9 +194,9 @@ export default function Page() {
             </div>
 
             <div className="profile-carousel-meta" aria-hidden="true">
-              <h2 className="profile-carousel-name">{selectedBuddy}</h2>
+              <h2 className="profile-carousel-name">{currentBuddy.name}</h2>
               <p className="profile-carousel-subtitle">
-                Brave &bull; Curious &bull; Loves Coding
+                {currentBuddy.traits}
               </p>
             </div>
           </div>
@@ -169,18 +209,19 @@ export default function Page() {
               type="button"
               className="profile-nav-button profile-nav-button--left"
               aria-label="Previous buddy"
+              onClick={handlePrev}
             >
               <ArrowIcon direction="left" />
             </button>
 
-            <div className="profile-card-row">
-              {buddies.map((buddy) => (
+            <div className="profile-card-row" ref={cardRowRef}>
+              {buddies.map((buddy, index) => (
                 <button
                   key={buddy.name}
                   type="button"
                   className={`profile-card ${selectedBuddy === buddy.name ? 'profile-card--selected' : ''}`}
                   aria-pressed={selectedBuddy === buddy.name}
-                  onClick={() => setSelectedBuddy(buddy.name)}
+                  onClick={() => handleSelect(buddy.name, index)}
                 >
                   <div className="profile-card-art">
                     <Image
@@ -209,6 +250,7 @@ export default function Page() {
               type="button"
               className="profile-nav-button profile-nav-button--right"
               aria-label="Next buddy"
+              onClick={handleNext}
             >
               <ArrowIcon direction="right" />
             </button>
