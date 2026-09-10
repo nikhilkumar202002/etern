@@ -17,7 +17,8 @@ const Page = () => {
       }}
     >
       <header className="create-profile-header app-container">
-        <Image
+        <Link href="/create-profile" aria-label="Back to profiles">
+          <Image
           src="/etern-white-logo.png"
           alt="Etern Learning"
           width={160}
@@ -25,6 +26,7 @@ const Page = () => {
           priority
           className="create-profile-logo"
         />
+        </Link>
       </header>
 
       <div className="form-box">
@@ -192,7 +194,7 @@ const Page = () => {
         }}
       >
         <Link
-          href="/profile"
+          href="/otp-verification"
           className="create-profile-cta-button create-profile-cta-button-white"
           aria-label="Continue"
         >

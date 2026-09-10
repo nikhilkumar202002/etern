@@ -215,7 +215,7 @@ export default function Page() {
           </section>
 
           <div className="profile-cta-wrap">
-            <Link href="/" className="profile-cta" aria-label="Continue">
+            <Link href="/learning-buddy" className="profile-cta" aria-label="Continue">
               <Image
                 src="/icons/black-white-arrow.png"
                 alt=""

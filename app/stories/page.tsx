@@ -1,5 +1,6 @@
 import './Stories.css'
 import Image from 'next/image'
+import Link from "next/link";
 import { IoIosLock } from 'react-icons/io'
 
 const categories = [
@@ -24,7 +25,8 @@ const Page = () => {
   return (
     <main className="stories-page">
       <header className="activity-header app-container">
-        <Image
+        <Link href="/activity" aria-label="Go to activities">
+          <Image
           src="/etern-white-logo.png"
           alt="Etern Learning"
           width={160}
@@ -32,21 +34,22 @@ const Page = () => {
           priority
           className="activity-logo"
         />
+        </Link>
 
         <nav className="activity-nav" aria-label="Activity navigation">
-          <a href="#tasks" className="activity-nav-link">
+          <Link href="/streak" className="activity-nav-link">
             <span className="activity-nav-icon activity-nav-icon--task">
               <Image src="/icons/task.png" alt="" width={48} height={48} aria-hidden="true" />
             </span>
             <span>Tasks</span>
-          </a>
+          </Link>
 
-          <a href="#tiggy" className="activity-nav-link">
+          <Link href="/profile-options" className="activity-nav-link">
             <span className="activity-nav-icon activity-nav-icon--tiggy">
               <Image src="/characters/tiggy.png" alt="" width={30} height={30} aria-hidden="true" />
             </span>
             <span>Tiggy</span>
-          </a>
+          </Link>
         </nav>
       </header>
 

@@ -86,6 +86,24 @@
     pointer-events: none;
 }
 
+.otp-verification-cloud,
+.otp-verification-star,
+.otp-verification-book,
+.otp-verification-hat {
+    animation:
+        otp-verification-fade-in 550ms ease-out var(--otp-entry-delay, 1s) both,
+        otp-verification-bounce var(--otp-bounce-duration, 3s) ease-in-out var(--otp-bounce-delay, 0s) infinite;
+}
+
+@keyframes otp-verification-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
 .otp-verification-mascot {
     width: 250px;
     top: 120px;
@@ -93,24 +111,32 @@
 }
 
 .otp-verification-cloud {
+    --otp-entry-delay: 1s;
+    --otp-bounce-duration: 3.6s;
     width: 60px;
     top: 80px;
     left: 568px;
 }
 
 .otp-verification-cloud-right {
+    --otp-entry-delay: 1.1s;
+    --otp-bounce-delay: -1.8s;
     top: 40px;
     right: clamp(20px, 5vw, 80px);
     left: auto;
 }
 
 .otp-verification-star {
+    --otp-entry-delay: 1.2s;
+    --otp-bounce-delay: -0.5s;
     width: 50px;
     top: 100px;
     left: -10px;
 }
 
 .otp-verification-star-right {
+    --otp-entry-delay: 1.3s;
+    --otp-bounce-delay: -2s;
     width: 30px;
     top: 220px;
     right: 300px;
@@ -118,12 +144,16 @@
 }
 
 .otp-verification-book {
+    --otp-entry-delay: 1.4s;
+    --otp-bounce-delay: -1s;
     width: 100px;
     top: 100px;
     left: 45%;
 }
 
 .otp-verification-hat {
+    --otp-entry-delay: 1.5s;
+    --otp-bounce-delay: -1.5s;
     width: 90px;
     top: 60px;
     right: 300px;
@@ -190,6 +220,61 @@
     height: 2rem;
     display: block;
     object-fit: contain;
+}
+
+/* Reveal the page in order without changing its positioning transforms. */
+.otp-verification-header,
+.otp-verification-copy,
+.otp-verification-footer-pattern,
+.otp-verification-wave,
+.otp-verification-mascot,
+.otp-verification-form-box,
+.otp-verification-cta {
+    animation: otp-verification-fade-in 550ms ease-out var(--otp-entry-delay, 0s) both;
+}
+
+.otp-verification-footer-pattern {
+    --otp-entry-delay: 0.2s;
+}
+
+.otp-verification-wave {
+    --otp-entry-delay: 0.4s;
+}
+
+.otp-verification-mascot {
+    --otp-entry-delay: 0.6s;
+}
+
+.otp-verification-form-box,
+.otp-verification-cta {
+    --otp-entry-delay: 0.8s;
+}
+
+@keyframes otp-verification-fade-in {
+    from {
+        opacity: 0;
+        visibility: hidden;
+    }
+    to {
+        opacity: 1;
+        visibility: visible;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .otp-verification-header,
+    .otp-verification-copy,
+    .otp-verification-footer-pattern,
+    .otp-verification-wave,
+    .otp-verification-mascot,
+    .otp-verification-form-box,
+    .otp-verification-cta,
+    .otp-verification-cloud,
+    .otp-verification-star,
+    .otp-verification-book,
+    .otp-verification-hat {
+        animation: none;
+    }
 }
 
 @media (max-width: 900px) {

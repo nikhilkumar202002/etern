@@ -63,7 +63,8 @@ const Page = () => {
                 />
               </div>
       <header className="create-profile-header app-container">
-        <Image
+        <Link href="/" aria-label="Back to welcome">
+          <Image
           src="/etern-white-logo.png"
           alt="Etern Learning"
           width={160}
@@ -71,6 +72,7 @@ const Page = () => {
           priority
           className="create-profile-logo"
         />
+        </Link>
       </header>
 
       <section className="create-profile-hero">
@@ -122,8 +124,10 @@ const Page = () => {
 
           <div className="create-profile-card-grid">
             {profiles.map((profile) => (
-              <article
+              <Link
                 key={profile.name}
+                href="/activity"
+                aria-label={`Continue as ${profile.name}`}
                 className={`create-profile-card create-profile-card--${profile.accent}`}
               >
                 <div
@@ -173,7 +177,7 @@ const Page = () => {
                     </strong>
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
 

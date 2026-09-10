@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from "next/link";
 import './Streak.css'
 
 const Page = () => {
@@ -15,7 +16,8 @@ const Page = () => {
       }}
     >
           <header className="activity-header app-container">
-                <Image
+                <Link href="/activity" aria-label="Go to activities">
+          <Image
                   src="/etern-white-logo.png"
                   alt="Etern Learning"
                   width={160}
@@ -23,9 +25,10 @@ const Page = () => {
                   priority
                   className="activity-logo"
                 />
+        </Link>
         
                 <nav className="activity-nav" aria-label="Activity navigation">
-                  <a href="#tasks" className="activity-nav-link">
+                  <Link href="/streak" className="activity-nav-link">
                     <span className="activity-nav-icon activity-nav-icon--task">
                       <Image
                         src="/icons/task.png"
@@ -36,9 +39,9 @@ const Page = () => {
                       />
                     </span>
                     <span>Tasks</span>
-                  </a>
+                  </Link>
         
-                  <a href="#tiggy" className="activity-nav-link">
+                  <Link href="/profile-options" className="activity-nav-link">
                     <span className="activity-nav-icon activity-nav-icon--tiggy">
                       <Image
                         src="/characters/tiggy.png"
@@ -49,7 +52,7 @@ const Page = () => {
                       />
                     </span>
                     <span>Tiggy</span>
-                  </a>
+                  </Link>
                 </nav>
       </header>
 
@@ -79,7 +82,7 @@ const Page = () => {
           </section>
 
           <section className="streak-card streak-progress">
-            <h2>Today&apos;s Progress</h2>
+            <h2><Link href="/progress">Today&apos;s Progress</Link></h2>
             <div className="streak-progress-grid">
               <div className="streak-progress-ring">
                 <strong>75%</strong>
@@ -123,9 +126,9 @@ const Page = () => {
           
         
             <div className="streak-fun-grid">
-              <a href="#stories" className="streak-fun-card" aria-label="Stories">
+              <Link href="/stories" className="streak-fun-card" aria-label="Stories">
                 <Image src="/images/stories-3.png" alt="Stories" fill sizes="(max-width: 760px) 50vw, 20vw" />
-              </a>
+              </Link>
               <a href="#self-help" className="streak-fun-card" aria-label="Self help">
                 <Image src="/images/stories-1.png" alt="Self help" fill sizes="(max-width: 760px) 50vw, 20vw" />
               </a>
@@ -138,7 +141,7 @@ const Page = () => {
             </div>
           </section>
 
-          <a href="#jungle-book" className="streak-learning">
+          <Link href="/stories" className="streak-learning">
             <Image src="/images/chapter.jpg" alt="" width={76} height={76} />
             <div className="streak-learning-copy">
               <p>Continue Learning</p>
@@ -152,7 +155,7 @@ const Page = () => {
             <span className="streak-learning-arrow" aria-hidden="true">
               <Image src="/icons/black-violet-arrow.png" alt="" width={24} height={24} />
             </span>
-          </a>
+          </Link>
         </div>
       </section>
 

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import "./LearningBuddy.css";
 import Image from "next/image";
+import Link from "next/link";
 import { FiCamera, FiCheck, FiImage } from "react-icons/fi";
 
 const buddies = [
@@ -19,7 +20,8 @@ const Page = () => {
   return (
     <main className="learning-buddy-page">
       <header className="activity-header app-container">
-        <Image
+        <Link href="/activity" aria-label="Go to activities">
+          <Image
           src="/etern-white-logo.png"
           alt="Etern Learning"
           width={160}
@@ -27,9 +29,10 @@ const Page = () => {
           priority
           className="activity-logo"
         />
+        </Link>
 
         <nav className="activity-nav" aria-label="Activity navigation">
-          <a href="#tasks" className="activity-nav-link">
+          <Link href="/streak" className="activity-nav-link">
             <span className="activity-nav-icon activity-nav-icon--task">
               <Image
                 src="/icons/task.png"
@@ -40,9 +43,9 @@ const Page = () => {
               />
             </span>
             <span>Tasks</span>
-          </a>
+          </Link>
 
-          <a href="#tiggy" className="activity-nav-link">
+          <Link href="/profile-options" className="activity-nav-link">
             <span className="activity-nav-icon activity-nav-icon--tiggy">
               <Image
                 src="/characters/tiggy.png"
@@ -53,7 +56,7 @@ const Page = () => {
               />
             </span>
             <span>Tiggy</span>
-          </a>
+          </Link>
         </nav>
       </header>
 
@@ -119,8 +122,8 @@ const Page = () => {
             </div>
 
             <div className="learning-buddy-controls">
-              <a
-                href="#previous"
+              <Link
+                href="/profile"
                 className="learning-buddy-arrow learning-buddy-arrow--back"
                 aria-label="Previous step"
               >
@@ -131,7 +134,7 @@ const Page = () => {
                   height={28}
                   aria-hidden="true"
                 />
-              </a>
+              </Link>
               <div className="learning-buddy-actions">
                 <a
                   href="#camera"
@@ -148,8 +151,8 @@ const Page = () => {
                   <span>Gallery</span>
                 </a>
               </div>
-              <a
-                href="#next"
+              <Link
+                href="/activity"
                 className="learning-buddy-arrow learning-buddy-arrow--next"
                 aria-label="Next step"
               >
@@ -160,7 +163,7 @@ const Page = () => {
                   height={28}
                   aria-hidden="true"
                 />
-              </a>
+              </Link>
             </div>
           </div>
         </section>

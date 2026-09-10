@@ -12,6 +12,7 @@ const page = () => {
         
 
         <header className="otp-verification-header app-container">
+          <Link href="/create-child-profile" aria-label="Back to child details">
           <Image
             src="/etern-white-logo.png"
             alt="Etern Learning"
@@ -20,6 +21,7 @@ const page = () => {
             priority
             className="otp-verification-logo"
           />
+        </Link>
         </header>
 
         <div className="otp-verification-form-box">
@@ -52,7 +54,7 @@ const page = () => {
             />
           </div>
 
-          <div>
+          <div className="otp-verification-decoration">
             <Image
               src="/icons/cloud.png"
               alt=""
@@ -64,7 +66,7 @@ const page = () => {
             />
           </div>
 
-          <div>
+          <div className="otp-verification-decoration">
             <Image
               src="/icons/cloud.png"
               alt=""
@@ -76,7 +78,7 @@ const page = () => {
             />
           </div>
 
-          <div>
+          <div className="otp-verification-decoration">
             <Image
               src="/icons/star.png"
               alt=""
@@ -88,7 +90,7 @@ const page = () => {
             />
           </div>
 
-          <div>
+          <div className="otp-verification-decoration">
             <Image
               src="/icons/star.png"
               alt=""
@@ -100,7 +102,7 @@ const page = () => {
             />
           </div>
 
-          <div>
+          <div className="otp-verification-decoration">
             <Image
               src="/icons/open-book.png"
               alt=""
@@ -112,7 +114,7 @@ const page = () => {
             />
           </div>
 
-          <div>
+          <div className="otp-verification-decoration">
             <Image
               src="/icons/hat.png"
               alt=""

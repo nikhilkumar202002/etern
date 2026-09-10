@@ -1,13 +1,15 @@
 import React from "react";
 import "./ProfileView.css";
 import Image from "next/image";
+import Link from "next/link";
 import { FiCamera, FiEdit3 } from "react-icons/fi";
 
 const Page = () => {
   return (
     <main className="profile-view-main">
       <header className="activity-header app-container">
-        <Image
+        <Link href="/activity" aria-label="Go to activities">
+          <Image
           src="/etern-white-logo.png"
           alt="Etern Learning"
           width={160}
@@ -15,9 +17,10 @@ const Page = () => {
           priority
           className="activity-logo"
         />
+        </Link>
 
         <nav className="activity-nav" aria-label="Activity navigation">
-          <a href="#tasks" className="activity-nav-link">
+          <Link href="/streak" className="activity-nav-link">
             <span className="activity-nav-icon activity-nav-icon--task">
               <Image
                 src="/icons/task.png"
@@ -28,9 +31,9 @@ const Page = () => {
               />
             </span>
             <span>Tasks</span>
-          </a>
+          </Link>
 
-          <a href="#tiggy" className="activity-nav-link">
+          <Link href="/profile-options" className="activity-nav-link">
             <span className="activity-nav-icon activity-nav-icon--tiggy">
               <Image
                 src="/characters/tiggy.png"
@@ -41,16 +44,16 @@ const Page = () => {
               />
             </span>
             <span>Tiggy</span>
-          </a>
+          </Link>
         </nav>
       </header>
       <section className="profile-view-layout" aria-label="Tiggy profile">
         <article className="profile-view-card">
           <div className="profile-view-avatar">
             <Image src="/characters/tiggy-circle.png" alt="Tiggy" fill sizes="150px" />
-            <span className="profile-view-camera" aria-hidden="true">
-              <FiCamera />
-            </span>
+            <Link href="/learning-buddy" className="profile-view-camera" aria-label="Change learning buddy">
+              <FiCamera aria-hidden="true" />
+            </Link>
           </div>
           <h1>Tiggy</h1>
           <span className="profile-view-level">
@@ -80,9 +83,9 @@ const Page = () => {
               <small>Name</small>
               <strong>Tiggy</strong>
             </span>
-            <b aria-hidden="true">
-              <FiEdit3 />
-            </b>
+            <Link href="/create-child-profile" aria-label="Edit name">
+              <FiEdit3 aria-hidden="true" />
+            </Link>
           </div>
           <div className="profile-view-field">
             <span className="profile-view-field-icon profile-view-field-icon--violet">
@@ -98,9 +101,9 @@ const Page = () => {
               <small>Date Of Birth</small>
               <strong>01 - 10 - 2020</strong>
             </span>
-            <b aria-hidden="true">
-              <FiEdit3 />
-            </b>
+            <Link href="/create-child-profile" aria-label="Edit date of birth">
+              <FiEdit3 aria-hidden="true" />
+            </Link>
           </div>
           <div className="profile-view-field">
             <span className="profile-view-field-icon profile-view-field-icon--green">
@@ -116,9 +119,9 @@ const Page = () => {
               <small>Mobile Number</small>
               <strong>+91 1234567890</strong>
             </span>
-            <b aria-hidden="true">
-              <FiEdit3 />
-            </b>
+            <Link href="/create-child-profile" aria-label="Edit mobile number">
+              <FiEdit3 aria-hidden="true" />
+            </Link>
           </div>
           <div className="profile-view-field">
             <span className="profile-view-field-icon profile-view-field-icon--yellow">
@@ -134,12 +137,12 @@ const Page = () => {
               <small>Email Id</small>
               <strong>tiggy@gmail.com</strong>
             </span>
-            <b aria-hidden="true">
-              <FiEdit3 />
-            </b>
+            <Link href="/create-child-profile" aria-label="Edit email address">
+              <FiEdit3 aria-hidden="true" />
+            </Link>
           </div>
-          <a
-            href="#profile-options"
+          <Link
+            href="/profile-options"
             className="profile-view-back"
             aria-label="Back to profile options"
           >
@@ -150,7 +153,7 @@ const Page = () => {
               height={28}
               aria-hidden="true"
             />
-          </a>
+          </Link>
         </section>
       </section>
     </main>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const Page = () => {
   return (
@@ -14,7 +15,8 @@ const Page = () => {
       }}
     >
       <header className="activity-header app-container">
-        <Image
+        <Link href="/activity" aria-label="Go to activities">
+          <Image
           src="/etern-white-logo.png"
           alt="Etern Learning"
           width={160}
@@ -22,9 +24,10 @@ const Page = () => {
           priority
           className="activity-logo"
         />
+        </Link>
 
         <nav className="activity-nav" aria-label="Activity navigation">
-          <a href="#tasks" className="activity-nav-link">
+          <Link href="/streak" className="activity-nav-link">
             <span className="activity-nav-icon activity-nav-icon--task">
               <Image
                 src="/icons/task.png"
@@ -35,9 +38,9 @@ const Page = () => {
               />
             </span>
             <span>Tasks</span>
-          </a>
+          </Link>
 
-          <a href="#tiggy" className="activity-nav-link">
+          <Link href="/profile-options" className="activity-nav-link">
             <span className="activity-nav-icon activity-nav-icon--tiggy">
               <Image
                 src="/characters/tiggy.png"
@@ -48,7 +51,7 @@ const Page = () => {
               />
             </span>
             <span>Tiggy</span>
-          </a>
+          </Link>
         </nav>
       </header>
 
@@ -81,7 +84,7 @@ const Page = () => {
         </div>
 
         <div className="activity-card-grid">
-          <a href="#kutty-stories" className="activity-card activity-card--blue">
+          <Link href="/stories" className="activity-card activity-card--blue">
             <div className="activity-card-image">
               <Image
                 src="/images/kutty-stories.jpg"
@@ -106,9 +109,9 @@ const Page = () => {
                 />
               </span>
             </div>
-          </a>
+          </Link>
 
-          <a href="#creative-kids" className="activity-card activity-card--orange">
+          <Link href="/progress" className="activity-card activity-card--orange">
             <div className="activity-card-image">
               <Image
                 src="/images/creative-kids.jpg"
@@ -133,9 +136,9 @@ const Page = () => {
                 />
               </span>
             </div>
-          </a>
+          </Link>
 
-          <a href="#curious-mind" className="activity-card activity-card--green">
+          <Link href="/progress" className="activity-card activity-card--green">
             <div className="activity-card-image">
               <Image
                 src="/images/curious-mind.jpg"
@@ -160,7 +163,7 @@ const Page = () => {
                 />
               </span>
             </div>
-          </a>
+          </Link>
         </div>
 
         <div className="activity-footer-copy">
