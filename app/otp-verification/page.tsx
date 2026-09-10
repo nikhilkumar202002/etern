@@ -2,12 +2,14 @@ import React from "react";
 import "./OtpVerification.css";
 import Image from "next/image";
 import Link from "next/link";
+import OtpForm from "../components/ui/OtpForm";
 
 const page = () => {
   return (
     <>
       <main className="otp-verification-page">
         <div className="otp-verification-glow" aria-hidden="true" />
+        
 
         <header className="otp-verification-header app-container">
           <Image
@@ -20,14 +22,18 @@ const page = () => {
           />
         </header>
 
+        <div className="otp-verification-form-box">
+          <OtpForm />
+        </div>
+
         <div>
           <div className="app-container">
             <div className="otp-verification-copy">
               <h1 className="otp-verification-title">
-                Create Child&apos;s Profile
+                Verify OTP code
               </h1>
               <p className="otp-verification-subtitle">
-                Let&apos;s personalise their learning journey!
+                Enter the 4 digit code we’ve sent to your mobile number
               </p>
             </div>
           </div>

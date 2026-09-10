@@ -13,6 +13,20 @@
     z-index: 0;
 }
 
+.otp-verification-form-box {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    width: min(550px, calc(100% - 1.5rem));
+    pointer-events: auto;
+}
+
+.otp-verification-form-box > .otp-form-container {
+    margin-top: 0;
+}
+
 .otp-verification-glow{
     position: absolute;
     z-index: -1;
@@ -73,14 +87,14 @@
 }
 
 .otp-verification-mascot {
-    width: 300px;
-    top: 250px;
-    left: 100px;
+    width: 250px;
+    top: 120px;
+    right: 350px;
 }
 
 .otp-verification-cloud {
     width: 60px;
-    top: 135px;
+    top: 80px;
     left: 568px;
 }
 
@@ -119,7 +133,7 @@
 
 .otp-verification-wave {
     z-index: 3;
-    bottom: -320px;
+    bottom: -120px;
 }
 
 .otp-verification-footer-pattern {

@@ -185,3 +185,244 @@
   line-height: 1.4;
   font-weight: 500;
 }
+
+/* OTP verification card */
+.otp-form-container {
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: min(100%, 600px);
+  margin-top: 50px;
+  padding: 80px 38px 38px;
+  border-radius: 50px;
+  background: #ffffff;
+  box-shadow: 0 18px 55px rgba(32, 94, 125, 0.14);
+  color: #515151;
+  font-family: var(--font-nunito), sans-serif;
+  text-align: center;
+}
+
+.otp-form-badge {
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.otp-form-sparkle {
+  display: block;
+  width: 36px;
+  height: auto;
+}
+
+.otp-form-lock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 100px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: #ebf7fd;
+  color: #38b6f3;
+}
+
+.otp-form-lock > svg {
+  width: 35px;
+  height: 35px;
+  stroke-width: 2.3;
+}
+
+.otp-form-asterisks {
+  display: flex;
+  margin-top: 2px;
+}
+
+.otp-form-asterisks svg {
+  width: 11px;
+  height: 11px;
+  stroke-width: 3;
+}
+
+.otp-form-title {
+  margin: 0;
+  color: #080808;
+  font-family: var(--font-fredoka), sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.otp-form-description {
+  margin: 6px 0 0;
+  font-size: 21px;
+  line-height: 1.4;
+}
+
+.otp-form-destination {
+  display: block;
+  overflow-wrap: anywhere;
+  font-weight: 700;
+}
+
+.otp-form-digits {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 90px));
+  justify-content: space-between;
+  gap: 16px;
+  margin: 36px 24px 50px;
+}
+
+.otp-form-digits::before {
+  position: absolute;
+  z-index: -1;
+  inset: -18px -12px;
+  border-radius: 40px;
+  background: #dff4ff;
+  filter: blur(24px);
+  content: "";
+  pointer-events: none;
+}
+
+.otp-form-digit {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  height: 100px;
+  padding: 0 4px;
+  border: 1px solid transparent;
+  border-radius: 26px;
+  background: #ffffff;
+  color: #269fdc;
+  font-family: inherit;
+  font-size: 38px;
+  font-weight: 600;
+  text-align: center;
+  caret-color: #38b6f3;
+}
+
+.otp-form-digit::placeholder {
+  color: #a7dfff;
+  opacity: 1;
+}
+
+.otp-form-digit:first-child {
+  border-color: #8ed8ff;
+}
+
+.otp-form-digit:focus {
+  border-color: #38b6f3;
+  outline: 2px solid rgba(56, 182, 243, 0.3);
+  outline-offset: 3px;
+}
+
+.otp-form-resend-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 78px;
+  padding: 16px 24px;
+  box-sizing: border-box;
+  border-radius: 26px;
+  background: #ebf7fd;
+  font-size: 20px;
+}
+
+.otp-form-timer,
+.otp-form-resend {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+}
+
+.otp-form-timer {
+  text-align: left;
+}
+
+.otp-form-timer > svg,
+.otp-form-resend > svg {
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  color: #32b6f6;
+  stroke-width: 1.8;
+}
+
+.otp-form-time {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.otp-form-resend {
+  flex-shrink: 0;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #28b4f5;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.otp-form-resend:disabled {
+  cursor: not-allowed;
+}
+
+.otp-form-resend:enabled:hover {
+  color: #1485bd;
+}
+
+.otp-form-resend:focus-visible {
+  outline: 2px solid #38b6f3;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+@media (max-width: 600px) {
+  .otp-form-container {
+    padding: 72px 20px 24px;
+    border-radius: 34px;
+  }
+
+  .otp-form-description {
+    font-size: 18px;
+  }
+
+  .otp-form-digits {
+    gap: 12px;
+    margin: 30px 4px 34px;
+  }
+
+  .otp-form-digit {
+    height: clamp(64px, 16vw, 90px);
+    border-radius: 20px;
+    font-size: 30px;
+  }
+
+  .otp-form-resend-bar {
+    flex-wrap: wrap;
+    gap: 4px 12px;
+    padding: 12px 16px;
+    border-radius: 22px;
+    font-size: 16px;
+  }
+
+  .otp-form-resend {
+    margin-left: auto;
+  }
+
+  .otp-form-timer > svg,
+  .otp-form-resend > svg {
+    width: 24px;
+    height: 24px;
+  }
+}
