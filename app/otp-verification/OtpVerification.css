@@ -106,14 +106,14 @@
 
 .otp-verification-book {
     width: 100px;
-    top: 250px;
-    left: 480px;
+    top: 100px;
+    left: 45%;
 }
 
 .otp-verification-hat {
     width: 90px;
     top: 60px;
-    right: 500px;
+    right: 300px;
 }
 
 .otp-verification-bottom {
