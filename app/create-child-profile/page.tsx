@@ -156,7 +156,10 @@ const Page = () => {
           height={0}
           aria-hidden="true"
           style={{
-            width: "100%",
+            width: "max(100%, 1440px)",
+            maxWidth: "none",
+            left: "50%",
+            transform: "translateX(-50%)",
             height: "auto",
             display: "block",
             position: "absolute",
@@ -172,12 +175,16 @@ const Page = () => {
           height={747}
           aria-hidden="true"
           style={{
-            width: "100%",
+            width: "max(100%, 1440px)",
+            maxWidth: "none",
+            left: "50%",
+            transform: "translateX(-50%)",
             height: "auto",
             display: "block",
             position: "absolute",
             zIndex: 10,
             bottom: -170,
+            pointerEvents: "none",
           }}
         />
       </div>
