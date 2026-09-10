@@ -1,0 +1,187 @@
+.otp-verification-page{
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background-color: #67C4F5;
+    width: 100%;
+    min-height: 100vh;
+    min-height: 100svh;
+    height: 100svh;
+    display: flex;
+    flex-direction: column;
+    color: #ffffff;
+    z-index: 0;
+}
+
+.otp-verification-glow{
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 50%;
+    width: clamp(280px, 50vw, 700px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.85);
+    filter: blur(250px);
+    transform: translate(-50%, -45%);
+    pointer-events: none;
+}
+
+.otp-verification-header {
+    flex: 0 0 auto;
+    padding-top: 0.7rem;
+    padding-bottom: 0.55rem;
+    display: flex;
+    align-items: flex-start;
+}
+
+.otp-verification-logo {
+    width: 140px;
+    height: auto;
+}
+
+.otp-verification-copy {
+    padding-top: 65px;
+}
+
+.otp-verification-title {
+    margin: 0;
+    color: #ffffff;
+    font-size: 45px;
+    line-height: 0.95;
+    font-weight: 500;
+}
+
+.otp-verification-subtitle {
+    margin: 0.5rem 0 0;
+    max-width: 40%;
+    font-size: clamp(0.92rem, 1.1vw, 1.05rem);
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.96);
+}
+
+.otp-verification-mascot,
+.otp-verification-cloud,
+.otp-verification-star,
+.otp-verification-book,
+.otp-verification-hat {
+    position: absolute;
+    z-index: 0;
+    height: auto;
+    display: block;
+    pointer-events: none;
+}
+
+.otp-verification-mascot {
+    width: 300px;
+    top: 250px;
+    left: 100px;
+}
+
+.otp-verification-cloud {
+    width: 60px;
+    top: 135px;
+    left: 568px;
+}
+
+.otp-verification-star {
+    width: 50px;
+    top: 100px;
+    left: -10px;
+}
+
+.otp-verification-book {
+    width: 100px;
+    top: 250px;
+    left: 480px;
+}
+
+.otp-verification-hat {
+    width: 90px;
+    top: 60px;
+    right: 500px;
+}
+
+.otp-verification-bottom {
+    margin-top: auto;
+    width: 100%;
+    position: relative;
+}
+
+.otp-verification-wave,
+.otp-verification-footer-pattern {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: absolute;
+    pointer-events: none;
+}
+
+.otp-verification-wave {
+    z-index: 3;
+    bottom: -320px;
+}
+
+.otp-verification-footer-pattern {
+    z-index: 10;
+    bottom: -170px;
+}
+
+.otp-verification-cta {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+    transform: translateX(-50%);
+    z-index: 20;
+    margin-top: 0;
+}
+
+.otp-verification-cta-button {
+    width: 4.15rem;
+    height: 4.15rem;
+    border: 0;
+    border-radius: 999px;
+    background: #7fd64f;
+    box-shadow: 0 16px 30px rgba(102, 179, 49, 0.26);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    padding: 0;
+    line-height: 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+.otp-verification-cta-button-white {
+    background-color: #ffffff;
+}
+
+.otp-verification-cta-icon {
+    width: 2rem;
+    height: 2rem;
+    display: block;
+    object-fit: contain;
+}
+
+@media (max-width: 900px) {
+    .otp-verification-copy {
+        max-width: 34rem;
+    }
+
+    .otp-verification-subtitle {
+        max-width: 24ch;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 700px) {
+    .otp-verification-header {
+        padding-top: 0.75rem;
+    }
+
+    .otp-verification-logo {
+        width: 128px;
+    }
+}
