@@ -288,12 +288,424 @@
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
+    .otp-verification-page {
+        height: auto;
+        min-height: 100svh;
+        overflow-x: hidden;
+        overflow-y: auto;
+        display: flex;
+        flex-direction: column;
+        isolation: isolate;
+        position: relative;
+    }
+
     .otp-verification-header {
-        padding-top: 0.75rem;
+        order: 0;
+        position: relative;
+        z-index: 2;
+        padding: max(10px, env(safe-area-inset-top)) 20px 4px;
     }
 
     .otp-verification-logo {
-        width: 128px;
+        width: 115px;
+        height: auto;
+    }
+
+    .otp-verification-copy-section {
+        order: 1;
+        position: relative;
+        z-index: 2;
+        width: 100%;
+    }
+
+    .otp-verification-copy {
+        padding-top: 4px;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .otp-verification-title {
+        font-size: clamp(24px, 6.8vw, 30px);
+        line-height: 1.15;
+    }
+
+    .otp-verification-subtitle {
+        font-size: clamp(13px, 3.6vw, 15px);
+        line-height: 1.35;
+        max-width: 32ch;
+        margin: 4px auto 0;
+    }
+
+    /* Art & mascot section positioned above the card */
+    .otp-verification-art-section {
+        order: 2;
+        position: relative;
+        z-index: 4;
+        width: 100%;
+        height: 130px;
+        margin: 8px 0 -24px;
+        pointer-events: none;
+    }
+
+    .otp-verification-mascot {
+        width: 110px;
+        height: auto;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        right: auto;
+        bottom: auto;
+        opacity: 1;
+        z-index: 2;
+        filter: drop-shadow(0 10px 18px rgba(35, 95, 150, 0.18));
+    }
+
+    .otp-verification-cloud {
+        position: absolute;
+        width: 36px;
+        height: auto;
+        z-index: 1;
+    }
+
+    .otp-verification-cloud-left {
+        top: 12px;
+        left: 10%;
+        right: auto;
+    }
+
+    .otp-verification-cloud-right {
+        top: 18px;
+        right: 10%;
+        left: auto;
+    }
+
+    .otp-verification-star {
+        position: absolute;
+        height: auto;
+        z-index: 1;
+    }
+
+    .otp-verification-star-left {
+        width: 22px;
+        top: 68px;
+        left: 18%;
+        right: auto;
+    }
+
+    .otp-verification-star-right {
+        width: 20px;
+        top: 64px;
+        right: 18%;
+        left: auto;
+    }
+
+    .otp-verification-book {
+        position: absolute;
+        width: 44px;
+        height: auto;
+        top: 48px;
+        left: 10%;
+        right: auto;
+        z-index: 3;
+        transform: rotate(-12deg);
+    }
+
+    .otp-verification-hat {
+        position: absolute;
+        width: 42px;
+        height: auto;
+        top: 8px;
+        right: 15%;
+        left: auto;
+        z-index: 3;
+        transform: rotate(16deg);
+    }
+
+    .otp-verification-form-box {
+        order: 3;
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        z-index: 11;
+        width: min(440px, calc(100% - 24px));
+        margin: 24px auto 0;
+    }
+
+    .otp-verification-form-box .otp-form-container {
+        padding: 60px 18px 20px;
+        border-radius: 30px;
+        box-shadow: 0 14px 38px rgba(32, 94, 125, 0.15);
+    }
+
+    .otp-verification-form-box .otp-form-digits {
+        margin: 20px 0 22px;
+        gap: 10px;
+    }
+
+    .otp-verification-form-box .otp-form-digit {
+        height: clamp(60px, 15vw, 76px);
+        border-radius: 18px;
+        font-size: 28px;
+    }
+
+    .otp-verification-form-box .otp-form-badge {
+        top: -42px;
+        gap: 8px;
+    }
+
+    .otp-verification-form-box .otp-form-lock {
+        width: 84px;
+        height: 84px;
+        flex: 0 0 84px;
+    }
+
+    .otp-verification-form-box .otp-form-lock > svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .otp-verification-form-box .otp-form-sparkle {
+        width: 28px;
+        height: auto;
+    }
+
+    .otp-verification-form-box .otp-form-title {
+        font-size: 22px;
+    }
+
+    .otp-verification-form-box .otp-form-description {
+        font-size: 15px;
+    }
+
+    .otp-verification-form-box .otp-form-resend-bar {
+        min-height: 48px;
+        padding: 8px 14px;
+        border-radius: 18px;
+        font-size: 15px;
+        margin-top: 4px;
+    }
+
+    .otp-verification-cta {
+        order: 4;
+        position: absolute;
+        left: 50%;
+        bottom: clamp(26px, 4.5vh, 42px);
+        transform: translateX(-50%);
+        margin: 0;
+        z-index: 20;
+    }
+
+    .otp-verification-cta-button {
+        width: 3.75rem;
+        height: 3.75rem;
+    }
+
+    .otp-verification-cta-icon {
+        width: 1.7rem;
+        height: 1.7rem;
+    }
+
+    /* Bottom landscape patterns */
+    .otp-verification-bottom {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        pointer-events: none;
+        z-index: 1;
+    }
+
+    .otp-verification-wave {
+        width: max(100%, 1050px);
+        max-width: none;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        z-index: 2;
+        height: auto;
+        display: block;
+    }
+
+    .otp-verification-footer-pattern {
+        width: max(100%, 860px);
+        max-width: none;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -75px;
+        z-index: 3;
+        height: auto;
+        display: block;
+    }
+}
+
+@media (max-width: 768px) and (max-height: 750px) {
+    .otp-verification-header {
+        padding-top: max(8px, env(safe-area-inset-top));
+        padding-bottom: 2px;
+    }
+
+    .otp-verification-logo {
+        width: 105px;
+    }
+
+    .otp-verification-copy {
+        padding-top: 0;
+    }
+
+    .otp-verification-title {
+        font-size: 22px;
+    }
+
+    .otp-verification-subtitle {
+        font-size: 13px;
+        margin-top: 2px;
+    }
+
+    .otp-verification-art-section {
+        height: 95px;
+        margin: 2px 0 -22px;
+    }
+
+    .otp-verification-mascot {
+        width: 85px;
+    }
+
+    .otp-verification-book {
+        width: 34px;
+        top: 32px;
+        left: 12%;
+    }
+
+    .otp-verification-hat {
+        width: 32px;
+        top: 4px;
+        right: 15%;
+    }
+
+    .otp-verification-cloud {
+        width: 28px;
+    }
+
+    .otp-verification-star {
+        width: 16px;
+    }
+
+    .otp-verification-form-box {
+        margin: 14px auto 0;
+    }
+
+    .otp-verification-form-box .otp-form-container {
+        padding: 46px 14px 14px;
+        border-radius: 26px;
+    }
+
+    .otp-verification-form-box .otp-form-badge {
+        top: -36px;
+    }
+
+    .otp-verification-form-box .otp-form-lock {
+        width: 72px;
+        height: 72px;
+        flex: 0 0 72px;
+    }
+
+    .otp-verification-form-box .otp-form-lock > svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    .otp-verification-form-box .otp-form-sparkle {
+        width: 24px;
+    }
+
+    .otp-verification-form-box .otp-form-title {
+        font-size: 20px;
+    }
+
+    .otp-verification-form-box .otp-form-description {
+        font-size: 14px;
+    }
+
+    .otp-verification-form-box .otp-form-digits {
+        margin: 12px 0 14px;
+        gap: 8px;
+    }
+
+    .otp-verification-form-box .otp-form-digit {
+        height: 52px;
+        font-size: 22px;
+        border-radius: 14px;
+    }
+
+    .otp-verification-form-box .otp-form-resend-bar {
+        min-height: 42px;
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .otp-verification-cta {
+        margin: 10px auto max(14px, env(safe-area-inset-bottom));
+    }
+
+    .otp-verification-cta-button {
+        width: 3.25rem;
+        height: 3.25rem;
+    }
+
+    .otp-verification-cta-icon {
+        width: 1.45rem;
+        height: 1.45rem;
+    }
+
+    .otp-verification-wave {
+        width: max(100%, 980px);
+        bottom: 10px;
+    }
+
+    .otp-verification-footer-pattern {
+        bottom: -75px;
+    }
+}
+
+@media (max-width: 380px) {
+    .otp-verification-art-section {
+        height: 115px;
+        margin: 6px 0 -22px;
+    }
+
+    .otp-verification-mascot {
+        width: 95px;
+    }
+
+    .otp-verification-book {
+        width: 38px;
+        left: 6%;
+        top: 42px;
+    }
+
+    .otp-verification-hat {
+        width: 36px;
+        right: 10%;
+    }
+
+    .otp-verification-cloud-left {
+        left: 6%;
+    }
+
+    .otp-verification-cloud-right {
+        right: 6%;
+    }
+
+    .otp-verification-star-left {
+        left: 14%;
+    }
+
+    .otp-verification-star-right {
+        right: 12%;
     }
 }

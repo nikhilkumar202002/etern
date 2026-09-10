@@ -33,7 +33,7 @@ const Starting = () => {
                 width={320}
                 height={96}
                 priority
-                className="h-auto w-52 sm:w-[120px]"
+                className="starting-logo"
               />
             </div>
 

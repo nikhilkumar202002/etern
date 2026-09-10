@@ -9,26 +9,25 @@ const page = () => {
     <>
       <main className="otp-verification-page">
         <div className="otp-verification-glow" aria-hidden="true" />
-        
 
         <header className="otp-verification-header app-container">
           <Link href="/create-child-profile" aria-label="Back to child details">
-          <Image
-            src="/etern-white-logo.png"
-            alt="Etern Learning"
-            width={180}
-            height={60}
-            priority
-            className="otp-verification-logo"
-          />
-        </Link>
+            <Image
+              src="/etern-white-logo.png"
+              alt="Etern Learning"
+              width={180}
+              height={60}
+              priority
+              className="otp-verification-logo"
+            />
+          </Link>
         </header>
 
         <div className="otp-verification-form-box">
           <OtpForm />
         </div>
 
-        <div>
+        <div className="otp-verification-copy-section">
           <div className="app-container">
             <div className="otp-verification-copy">
               <h1 className="otp-verification-title">
@@ -41,7 +40,7 @@ const page = () => {
           </div>
         </div>
 
-        <div>
+        <div className="otp-verification-art-section">
           <div>
             <Image
               src="/characters/tiger.png"
@@ -62,7 +61,7 @@ const page = () => {
               height={1017}
               aria-hidden="true"
               quality={100}
-              className="otp-verification-cloud"
+              className="otp-verification-cloud otp-verification-cloud-left"
             />
           </div>
 
@@ -86,7 +85,7 @@ const page = () => {
               height={1017}
               aria-hidden="true"
               quality={100}
-              className="otp-verification-star"
+              className="otp-verification-star otp-verification-star-left"
             />
           </div>
 
