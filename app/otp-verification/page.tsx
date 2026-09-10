@@ -66,6 +66,18 @@ const page = () => {
 
           <div>
             <Image
+              src="/icons/cloud.png"
+              alt=""
+              width={737}
+              height={1017}
+              aria-hidden="true"
+              quality={100}
+              className="otp-verification-cloud otp-verification-cloud-right"
+            />
+          </div>
+
+          <div>
+            <Image
               src="/icons/star.png"
               alt=""
               width={737}
@@ -73,6 +85,18 @@ const page = () => {
               aria-hidden="true"
               quality={100}
               className="otp-verification-star"
+            />
+          </div>
+
+          <div>
+            <Image
+              src="/icons/star.png"
+              alt=""
+              width={737}
+              height={1017}
+              aria-hidden="true"
+              quality={100}
+              className="otp-verification-star otp-verification-star-right"
             />
           </div>
 

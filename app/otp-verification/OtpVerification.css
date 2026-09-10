@@ -98,10 +98,23 @@
     left: 568px;
 }
 
+.otp-verification-cloud-right {
+    top: 40px;
+    right: clamp(20px, 5vw, 80px);
+    left: auto;
+}
+
 .otp-verification-star {
     width: 50px;
     top: 100px;
     left: -10px;
+}
+
+.otp-verification-star-right {
+    width: 30px;
+    top: 220px;
+    right: 300px;
+    left: auto;
 }
 
 .otp-verification-book {
