@@ -158,7 +158,12 @@ const Page = () => {
                   {activity.level}
                 </span>
                 <div className="progress-activity-image">
-                  <Image src={activity.image} alt="" fill sizes="210px" />
+                  <Image
+                    src={activity.image}
+                    alt={activity.title}
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 210px"
+                  />
                 </div>
                 <h3>{activity.title}</h3>
                 <a
