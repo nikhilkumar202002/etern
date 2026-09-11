@@ -4,56 +4,46 @@ import './Streak.css'
 
 const Page = () => {
   return (
-    <main
-      className="streak-page"
-      style={{
-        minHeight: '100svh',
-        backgroundColor: '#41b6f2',
-        backgroundImage: "url('/background/activity.jpg')",
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-      }}
-    >
-          <header className="activity-header app-container">
-                <Link href="/activity" aria-label="Go to activities">
+    <main className="streak-page">
+      <header className="activity-header app-container">
+        <Link href="/activity" aria-label="Go to activities">
           <Image
-                  src="/etern-white-logo.png"
-                  alt="Etern Learning"
-                  width={160}
-                  height={54}
-                  priority
-                  className="activity-logo"
-                />
+            src="/etern-white-logo.png"
+            alt="Etern Learning"
+            width={160}
+            height={54}
+            priority
+            className="activity-logo"
+          />
         </Link>
-        
-                <nav className="activity-nav" aria-label="Activity navigation">
-                  <Link href="/streak" className="activity-nav-link">
-                    <span className="activity-nav-icon activity-nav-icon--task">
-                      <Image
-                        src="/icons/task.png"
-                        alt=""
-                        width={48}
-                        height={48}
-                        aria-hidden="true"
-                      />
-                    </span>
-                    <span>Tasks</span>
-                  </Link>
-        
-                  <Link href="/profile-options" className="activity-nav-link">
-                    <span className="activity-nav-icon activity-nav-icon--tiggy">
-                      <Image
-                        src="/characters/tiggy.png"
-                        alt=""
-                        width={30}
-                        height={30}
-                        aria-hidden="true"
-                      />
-                    </span>
-                    <span>Tiggy</span>
-                  </Link>
-                </nav>
+
+        <nav className="activity-nav" aria-label="Activity navigation">
+          <Link href="/streak" className="activity-nav-link">
+            <span className="activity-nav-icon activity-nav-icon--task">
+              <Image
+                src="/icons/task.png"
+                alt=""
+                width={48}
+                height={48}
+                aria-hidden="true"
+              />
+            </span>
+            <span>Tasks</span>
+          </Link>
+
+          <Link href="/profile-options" className="activity-nav-link">
+            <span className="activity-nav-icon activity-nav-icon--tiggy">
+              <Image
+                src="/characters/tiggy.png"
+                alt=""
+                width={30}
+                height={30}
+                aria-hidden="true"
+              />
+            </span>
+            <span>Tiggy</span>
+          </Link>
+        </nav>
       </header>
 
       <div className="streak-heading">
@@ -104,8 +94,8 @@ const Page = () => {
 
         <div className="streak-main">
           <section className="streak-card streak-fun">
-           <div className="streak-grid-heading">
-    <Image
+            <div className="streak-grid-heading">
+              <Image
                 src="/icons/orange-sparkle-right.png"
                 alt=""
                 width={16}
@@ -122,9 +112,8 @@ const Page = () => {
                 aria-hidden="true"
                 className="streak-fun-spark"
               />
-           </div>
-          
-        
+            </div>
+
             <div className="streak-fun-grid">
               <Link href="/stories" className="streak-fun-card" aria-label="Stories">
                 <Image src="/images/stories-3.png" alt="Stories" fill sizes="(max-width: 760px) 50vw, 20vw" />
@@ -158,8 +147,7 @@ const Page = () => {
           </Link>
         </div>
       </section>
-
-        </main>
+    </main>
   )
 }
 

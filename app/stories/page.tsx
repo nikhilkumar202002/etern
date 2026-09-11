@@ -82,7 +82,12 @@ const Page = () => {
             {stories.map((story, index) => (
               <a href={`#story-${index + 1}`} className="story-card" key={story.image}>
                 <div className="story-card-image">
-                  <Image src={story.image} alt="The Jungle Book" fill sizes="220px" />
+                  <Image
+                    src={story.image}
+                    alt="The Jungle Book"
+                    fill
+                    sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 220px"
+                  />
                   {story.badge && <span className="story-card-badge">{story.badge}</span>}
                 </div>
                 <div className="story-card-content">
