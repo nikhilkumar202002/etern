@@ -6,7 +6,7 @@ const Page = () => {
     <main
       className="activity-page"
       style={{
-        minHeight: "100svh",
+        minHeight: "100dvh",
         backgroundColor: "#41b6f2",
         backgroundImage: "url('/background/activity.jpg')",
         backgroundPosition: "center",

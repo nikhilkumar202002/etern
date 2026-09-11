@@ -1,14 +1,24 @@
+/* Ensure document window scrolling is enabled and smooth */
+html,
+body {
+  height: auto;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+
 .profile-options-page {
-  height: 100svh;
-  min-height: 100svh;
   width: 100%;
+  min-height: 100svh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: visible;
   background-image: url('/background/profile-options.jpg');
-  background-position: center;
+  background-position: center top;
   background-repeat: no-repeat;
   background-size: cover;
+  -webkit-overflow-scrolling: touch;
 }
 
 .profile-options-header {
@@ -17,7 +27,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 86px;
+  min-height: 84px;
   gap: 1rem;
 }
 
@@ -32,56 +42,67 @@
   align-items: center;
   justify-content: space-between;
   gap: 0.6rem;
-  width: 40%;
+  width: auto;
+  max-width: 450px;
   min-width: 0;
   margin-left: auto;
-  padding: 8px;
+  padding: 6px 8px 6px 6px;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.96);
-  box-shadow: 0 8px 18px rgba(18, 105, 173, 0.16);
+  box-shadow: 0 8px 20px rgba(18, 105, 173, 0.16);
+  backdrop-filter: blur(8px);
 }
 
 .profile-options-avatar {
   position: relative;
-  width: 2.8rem;
-  height: 2.8rem;
+  width: 2.75rem;
+  height: 2.75rem;
   overflow: hidden;
   border-radius: 50%;
   background: #f59b2f;
   display: flex;
   align-items: center;
+  flex-shrink: 0;
+}
 
+.profile-options-account-info {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  min-width: 0;
 }
-.profile-options-account-info{
-    display: flex;
-    align-items: center;
-    gap: 0.6rem;
-}
+
 .profile-options-avatar img {
   object-fit: cover;
   object-position: center top;
 }
 
 .profile-options-account-copy {
-  display: grid;
-  gap: 0.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+  min-width: 0;
 }
 
 .profile-options-account-copy strong {
   color: #ff8b17;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
+  line-height: 1.1;
+  white-space: nowrap;
 }
 
 .profile-options-account-copy span {
   color: #6e6e6e;
-  font-size: 0.7rem;
+  font-size: 0.72rem;
+  white-space: nowrap;
 }
 
 .profile-options-balloon {
-  width: 3.8rem;
-  height: 3.8rem;
-  margin: 0 1rem 0 0.5rem;
+  width: 3.2rem;
+  height: 3.2rem;
+  margin: 0 0.5rem 0 0.25rem;
   object-fit: contain;
+  flex-shrink: 0;
 }
 
 .profile-options-edit {
@@ -89,13 +110,25 @@
   align-items: center;
   justify-content: center;
   gap: 0.45rem;
-  min-width: 7rem;
-  padding: 0.65rem 1rem;
+  min-width: 6.8rem;
+  padding: 0.55rem 0.95rem;
   border-radius: 999px;
   background: #754cdf;
   color: #ffffff;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
   text-decoration: none;
+  flex-shrink: 0;
+  transition: transform 0.18s ease, background-color 0.18s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.profile-options-edit:hover {
+  background: #653ecc;
+}
+
+.profile-options-edit:active {
+  transform: scale(0.96);
 }
 
 .profile-options-edit svg {
@@ -103,10 +136,140 @@
   height: 0.95rem;
 }
 
-@media (max-width: 640px) {
+/* Options Grid */
+.profile-options-grid {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  width: 100%;
+  min-height: 0;
+  box-sizing: border-box;
+  margin: 0 auto;
+  padding-top: clamp(1rem, 3.5vh, 2.75rem);
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
+}
+
+.profile-option-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 0;
+  padding: clamp(1.5rem, 3vw, 2.5rem) 1rem clamp(1.2rem, 2.5vw, 2rem);
+  border-radius: 1.65rem;
+  color: #111111;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: inset 0 -0.55rem 0 rgba(72, 96, 173, 0.16), 0 8px 24px rgba(30, 110, 157, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  box-sizing: border-box;
+}
+
+.profile-option-card:hover {
+  transform: translateY(-4px);
+  box-shadow: inset 0 -0.55rem 0 rgba(72, 96, 173, 0.2), 0 14px 28px rgba(30, 110, 157, 0.2);
+}
+
+.profile-option-card:active {
+  transform: scale(0.97);
+}
+
+.profile-option-icon {
+  display: grid;
+  place-items: center;
+  height: clamp(4.5rem, 8vw, 6rem);
+  margin-bottom: 0.5rem;
+}
+
+.profile-option-icon img {
+  width: clamp(80px, 12vw, 130px);
+  height: auto;
+  object-fit: contain;
+}
+
+.profile-option-card--games .profile-option-icon img {
+  width: clamp(95px, 14vw, 155px);
+}
+
+.profile-option-card--profile .profile-option-icon img {
+  width: clamp(80px, 12vw, 125px);
+}
+
+.profile-option-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+.profile-option-copy strong {
+  font-size: clamp(1.15rem, 2vw, 1.55rem);
+  color: #111111;
+  font-weight: 550;
+  font-family: var(--font-fredoka), sans-serif;
+  line-height: 1.2;
+}
+
+.profile-option-copy > span {
+  color: #666666;
+  font-size: clamp(0.72rem, 1.2vw, 0.82rem);
+  line-height: 1.25;
+}
+
+.profile-option-card--games { background: #e7d7ff; box-shadow: inset 0 -0.55rem 0 #c89cf5, 0 8px 24px rgba(117, 76, 223, 0.12); }
+.profile-option-card--subscription { background: #d9f5ee; box-shadow: inset 0 -0.55rem 0 #9ce4cf, 0 8px 24px rgba(22, 174, 134, 0.12); }
+.profile-option-card--performance { background: #d8efff; box-shadow: inset 0 -0.55rem 0 #9dd5f5, 0 8px 24px rgba(22, 140, 243, 0.12); }
+.profile-option-card--profile { background: #ffe5d8; box-shadow: inset 0 -0.55rem 0 #ffc1aa, 0 8px 24px rgba(245, 155, 47, 0.12); }
+.profile-option-card--messages { background: #fff3d4; box-shadow: inset 0 -0.55rem 0 #f4db9b, 0 8px 24px rgba(230, 170, 30, 0.12); }
+.profile-option-card--logout { background: #fbddec; box-shadow: inset 0 -0.55rem 0 #f1b0d0, 0 8px 24px rgba(230, 80, 140, 0.12); }
+
+.profile-option-badge {
+  position: absolute;
+  top: 0.85rem;
+  right: 1rem;
+  display: grid;
+  place-items: center;
+  min-width: 1.85rem;
+  height: 1.55rem;
+  padding: 0 0.45rem;
+  border-radius: 999px;
+  background: #ff513e;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(255, 81, 62, 0.4);
+}
+
+/* Tablet Screens (Under 1024px) */
+@media (max-width: 1024px) {
+  .profile-options-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.15rem;
+  }
+}
+
+/* Mobile Screens (Under 768px) */
+@media (max-width: 768px) {
+  .profile-options-page {
+    height: auto !important;
+    min-height: 100dvh;
+    overflow-y: visible !important;
+  }
+
+  .profile-options-page .app-container {
+    padding-left: clamp(14px, 4vw, 20px);
+    padding-right: clamp(14px, 4vw, 20px);
+  }
+
   .profile-options-header {
-    min-height: 72px;
-    gap: 0.45rem;
+    min-height: 64px;
+    padding-top: max(0.85rem, env(safe-area-inset-top, 14px));
+    padding-bottom: 0.35rem;
+    gap: 0.5rem;
   }
 
   .profile-options-logo {
@@ -115,8 +278,17 @@
 
   .profile-options-account {
     width: auto;
-    min-width: 0;
-    padding-right: 0.65rem;
+    padding: 4px 6px 4px 4px;
+    gap: 0.45rem;
+  }
+
+  .profile-options-avatar {
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+
+  .profile-options-account-copy strong {
+    font-size: 0.88rem;
   }
 
   .profile-options-account-copy span,
@@ -126,148 +298,97 @@
 
   .profile-options-edit {
     min-width: 0;
-    padding: 0.65rem;
+    padding: 0.5rem;
+    border-radius: 50%;
   }
 
   .profile-options-edit span {
     display: none;
   }
-}
 
-.profile-options-grid {
-  flex: 1 1 auto;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  grid-template-rows: repeat(2, minmax(0, 1fr));
-  gap: 1.1rem 1.25rem;
-  width: 100%;
-  min-height: 0;
-  box-sizing: border-box;
-  margin: 0 auto;
-  padding-top: 100px;
-  padding-bottom: 100px;
-}
-
-.profile-option-card {
-  position: relative;
-  display: grid;
-  justify-items: center;
-  align-content: space-between;
-  min-height: 0;
-  padding: 40px 0px;
-  border-radius: 1.45rem;
-  color: #111111;
-  text-align: center;
-  text-decoration: none;
-  box-shadow: inset 0 -0.55rem 0 rgba(72, 96, 173, 0.16);
-  transition: transform 160ms ease, filter 160ms ease;
-}
-
-.profile-option-card:hover {
-  transform: translateY(-3px);
-  filter: brightness(1.03);
-}
-
-.profile-option-icon {
-  display: grid;
-  place-items: center;
-  height: 5.4rem;
-}
-
-.profile-option-icon img {
-  width: 150px;
-  height: auto;
-  object-fit: contain;
-}
-
-.profile-option-card--games .profile-option-icon img {
-  width: 200px;
-  height: auto;
-}
-
-.profile-option-card--profile .profile-option-icon img {
-  width: 150px;
-}
-
-.profile-option-card strong {
-  margin-top: 0.15rem;
-  font-size: 1.05rem;
-  line-height: 1.1;
-}
-
-.profile-option-copy {
-  display: grid;
-  justify-items: center;
-  gap: 0.25rem;
-}
-
-.profile-option-copy strong {
-  margin-top: 0;
-  font-size: 25px;
-  color: #111111;
-  font-weight: 550;
-  font-family: var(--font-fredoka), sans-serif;
-}
-
-.profile-option-copy > span {
-  color: #666666;
-  font-size: 0.72rem;
-}
-
-.profile-option-card > span:last-of-type {
-  margin-top: 0.25rem;
-  color: #666666;
-  font-size: 0.72rem;
-}
-
-.profile-option-card--games { background: #e7d7ff; box-shadow: inset 0 -0.55rem 0 #c89cf5; }
-.profile-option-card--subscription { background: #d9f5ee; box-shadow: inset 0 -0.55rem 0 #9ce4cf; }
-.profile-option-card--performance { background: #d8efff; box-shadow: inset 0 -0.55rem 0 #9dd5f5; }
-.profile-option-card--profile { background: #ffe5d8; box-shadow: inset 0 -0.55rem 0 #ffc1aa; }
-.profile-option-card--messages { background: #fff3d4; box-shadow: inset 0 -0.55rem 0 #f4db9b; }
-.profile-option-card--logout { background: #fbddec; box-shadow: inset 0 -0.55rem 0 #f1b0d0; }
-
-.profile-option-badge {
-  position: absolute;
-  top: 0.8rem;
-  right: 1rem;
-  display: grid;
-  place-items: center;
-  min-width: 2rem;
-  height: 1.65rem;
-  padding: 0 0.45rem;
-  border-radius: 999px;
-  background: #ff513e;
-  color: #ffffff;
-  font-size: 0.72rem;
-}
-
-.profile-option-badge--new {
-  min-width: 2.15rem;
-  background: #ff554d;
-}
-
-.profile-option-badge--count {
-  top: 1.25rem;
-  right: calc(50% - 2.8rem);
-  width: 1.35rem;
-  min-width: 1.35rem;
-  height: 1.35rem;
-  padding: 0;
-}
-
-@media (max-width: 760px) {
+  /* 2-column mobile grid for all 6 cards with decent spacing */
   .profile-options-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(3, minmax(9.7rem, 1fr));
-    margin-top: 2rem;
+    gap: clamp(0.65rem, 2.5vw, 0.85rem);
+    padding-top: clamp(0.5rem, 1.5vh, 0.85rem);
+    padding-bottom: calc(2.5rem + env(safe-area-inset-bottom, 20px));
+  }
+
+  .profile-option-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: clamp(0.85rem, 2.5vw, 1.15rem) clamp(0.55rem, 2vw, 0.75rem);
+    border-radius: 1.25rem;
+  }
+
+  .profile-option-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 3.6rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .profile-option-icon img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+  }
+
+  .profile-option-card--games .profile-option-icon img {
+    width: 74px;
+    height: 54px;
+  }
+
+  .profile-option-card--profile .profile-option-icon img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .profile-option-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.15rem;
+    width: 100%;
+    text-align: center;
+  }
+
+  .profile-option-copy strong {
+    font-size: clamp(0.95rem, 2.8vw, 1.1rem);
+    line-height: 1.15;
+  }
+
+  .profile-option-copy > span {
+    font-size: clamp(0.68rem, 1.9vw, 0.76rem);
+    line-height: 1.2;
+    opacity: 0.85;
+  }
+
+  .profile-option-badge {
+    top: 0.55rem;
+    right: 0.65rem;
+    min-width: 1.5rem;
+    height: 1.25rem;
+    font-size: 0.65rem;
   }
 }
 
-@media (max-width: 480px) {
+/* Very Small Mobile Devices (Under 340px) */
+@media (max-width: 340px) {
   .profile-options-grid {
     grid-template-columns: 1fr;
-    grid-template-rows: none;
-    grid-auto-rows: minmax(9.7rem, auto);
+    gap: 0.85rem;
+  }
+}
+
+/* Large Desktop Screens - bounded viewport when screen height is comfortable */
+@media (min-width: 1025px) and (min-height: 750px) {
+  .profile-options-page {
+    height: 100svh;
+    overflow: hidden;
   }
 }
