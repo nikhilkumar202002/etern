@@ -50,7 +50,7 @@ const Page = () => {
       <section className="profile-view-layout" aria-label="Tiggy profile">
         <article className="profile-view-card">
           <div className="profile-view-avatar">
-            <Image src="/characters/tiggy-circle.png" alt="Tiggy" fill sizes="150px" />
+            <Image src="/characters/tiggy-circle.png" alt="Tiggy" fill sizes="(max-width: 640px) 160px, 240px" />
             <Link href="/learning-buddy" className="profile-view-camera" aria-label="Change learning buddy">
               <FiCamera aria-hidden="true" />
             </Link>
